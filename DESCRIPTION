@@ -1,0 +1,11 @@
+Package: meadq
+Type: Package
+Title: meadq , a package for analysis of microelectrode array files
+Version: 1.0.1
+Depends:  sjemea, lattice  
+Date: 2014-05-02
+Author: Diana Hall, Quanli Wang, Stephen Eglen
+Maintainer: Diana Hall <dianaransomhall@yahoo.com>
+Description: Analysis and management of microelectrode array data
+License: GPL-2
+
