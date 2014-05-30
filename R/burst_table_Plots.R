@@ -5,7 +5,7 @@
 
 
 
-burst_table_Plot<-function( param.file=NULL, h5Files = NULL ){
+burst_table_Plots<-function( param.file=NULL, h5Files = NULL ){
     
   
   #load necessary packages
