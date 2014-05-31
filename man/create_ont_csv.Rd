@@ -7,7 +7,7 @@ create_ont_csv
 }
 
 \description{
-Function creates a .csv file where each column is a different variable (e.g. burst per minute) and each row is one well from one of the .h5 files provided.
+wrapper for create_burst_ont_Data, which prompts for param files, and .h5 files. Function creates a .csv file where each column is a different variable (e.g. burst per minute) and each row is one well from one of the .h5 files provided.
 }
 
 \usage{
@@ -19,7 +19,7 @@ create_burst_ont_Data(h5Files, save.rdata = F)
 \arguments{
   \item{h5Files}{
 
-A list of paths to .h5 files.  If not specified or =NULL then the user will be prompted to input the .h5Files; multiple may be entered at once, by holding down CTRL key during selection.
+A list of paths to .h5 files.  If not specified or =NULL then the user will be prompted to input the .h5Files; multiple may be entered at once, by holding down CTRL key during selection.  Param file will be prompted for.
 
 }
   \item{save.rdata}{
