@@ -7,17 +7,17 @@ chem.info.2
 \description{
 Reads in .csv file with meta data for each well. 
 Columns of meta data file must include the following names:
-\begin{enumerate}
-\item Project, a string coding for a particular project or set of recordings 
-\item Experiment Date, a date of any format e.g. 20140204 when experiment took place 
-\item Plate SN, the plate serial number 
-\item DIV, days in vitro the number of days old from the plating of the culture when recording was taken, numeric field
-\item well, e.g. "A1", or "F7"
-\item treatment, a string describing well treatment
-\item size, information about size of treatment
-\item dose, dose of treatment
-\item units, units of dose 
-\end{enumerate}
+
+ Project, a string coding for a particular project or set of recordings 
+ Experiment Date, a date of any format e.g. 20140204 when experiment took place 
+ Plate SN, the plate serial number 
+ DIV, days in vitro the number of days old from the plating of the culture when recording was taken, numeric field
+ well, e.g. "A1", or "F7"
+ treatment, a string describing well treatment
+ size, information about size of treatment
+ dose, dose of treatment
+ units, units of dose 
+
 The .h5 file name should contain the Project, experiment date, plate SN and DIV in that order seperated by a "_" underscore.  e.g. ON_20140205_MW1007-26_DIV02_001.h5 contains necessary information.  Note that any extra information may also be contained in file name, but the suffix of the file must be as described above.
 If there is no information accompanying a .csv meta data file, then "NA" should be entered to specify that the omission is purposeful.
 

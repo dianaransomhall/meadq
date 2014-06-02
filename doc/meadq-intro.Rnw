@@ -25,9 +25,9 @@
 \begin{document}
 
 \onehalfspacing
-\title{An introduction to the sjemea package}
+\title{mea package: From A to Z }
 
-\author{S. J. Eglen}
+\author{Diana Hall}
 \date{\today}
 
 \maketitle
@@ -36,15 +36,15 @@
 \section*{Installation}
 To install this package, and then view this introductory vignette, do:
 
-<<install-sjemea,eval=FALSE,echo=TRUE>>=
+<<install-meadq,eval=FALSE,echo=TRUE>>=
 tarfile.path = "F:/R/Rpackage_meadq/meadq_1.0.1.tar.gz"
 install.packages(pkgs = tarfile.path, type="source", repos = NULL)
-vignette('sjemea-intro', package='sjemea')
+vignette('meadq-intro', package='meadq')
 @
 
 Alternatively, if you want to get the latest version of the package,
 you can install it in the following manner:
-<<install-sjemea-github,eval=FALSE,echo=TRUE>>=
+<<install-meadq-github,eval=FALSE,echo=TRUE>>=
 install.package("devtools") # note: need R v.>=3.1.0
 # to install devtools, use CRAN
 require(devtools)
@@ -81,21 +81,18 @@ cat(format(help(package='meadq')), sep = '\n') #need to grab output.
 @
 
 
-\section*{Fourplot}
+\section*{creating .h5 Files from text files of spike trains}
 
-The fourplot gives a quick overview for a data file, showing (a) the
-positions of recorded neurons (b) the array-wide firing rate,
-estimated by default every 1 s (c) the spike raster for the entire
-recording (d) the correlation index plot \citep{Wong1993}.
+Convert the recorded data, which may be in a proprietary or otherwise non universal file type, into a type which may be read in by various softwares.  Following suggestions from the "program on Standards for Datasharing" by the International neuroinformatics coordinating facility \url{datasharing.incf.ord/ep/HDF5_data_standard}, code is provided to convert axion alpha map files to .h5 files that link spike train to meta-data about the experiment.  Current functionality is restricted to experimental meta data limited to a handful of variabes. However, additional information may be built in by creating a new function. 
 
 <<>>=
-data.file <- system.file("inst", "P9_CTRL_MY1_1A.txt",
-                         package = "sjemea")
-s <- jay.read.spikes( data.file)
-fourplot(s)
+# For example, choose .mapTimestamps: 
+print( system.file( "extdata/ON_20140205_MW1007-26_DIV07_001.mapTimestamps",
+                    package= "meadq") )
+make.axion.map.to.h5.dh()
 @
 
-\subsection{What is the ``s'' object?}
+\subsection{What is the ``s[[i]]'' object?}
 
 A convention of the program is that all data referring to a recording
 is stored within an object of class \texttt{mm.s}, which is actually a

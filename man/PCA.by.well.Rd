@@ -60,7 +60,7 @@ Diana Hall
 \dontrun{ filename.data=system.file("data/AllAEOntogeny_files.csv",  package="meadq", mustWork=T) }
 \dontrun{ trt.params.wantedlist = list(DIV.wanted=c("7","9"), 
               trt.wanted=c('Acetaminophen'), dose.wanted=c(1,3,10) ) }
-\dontrun{ output.folder = dirname(system.file("data/AllAEOntogeny_files.csv",  
+\dontrun{ output.folder = dirname( system.file("data/AllAEOntogeny_files.csv",  
                 package="meadq", mustWork=T) ) }
 \dontrun{ vars.wanted = c( "dose", "meanfiringrate","burst.per.min",
                   "mean.isis", "per.spikes.in.burst","mean.dur", "mean.IBIs",
