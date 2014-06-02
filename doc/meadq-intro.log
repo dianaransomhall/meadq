@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.15)  2 JUN 2014 16:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.15)  2 JUN 2014 16:43
 entering extended mode
 **meadq-intro.tex
 (F:\R\Rpackage_meadq\meadq\doc\meadq-intro.tex
@@ -459,22 +459,62 @@ Package natbib Warning: Citation `Eytan2006' on page 3 undefined on input line
 269.
 
 Package color Info: Redefining color shadecolor on input line 280.
+<figure/unnamed-chunk-21.pdf, id=16, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-21.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-21.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-21.pdf used on input line 296.
+(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 296--297
+[][] 
+ []
+
+[3] <figure/unnamed-chunk-22.pdf, id=21, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-22.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-22.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-22.pdf used on input line 303.
+(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 303--304
+[][] 
+ []
+
+[4 <F:/R/Rpackage_meadq/meadq/doc/figure/unnamed-chunk-21.pdf>]
+<figure/unnamed-chunk-23.pdf, id=30, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-23.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-23.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-23.pdf used on input line 309.
+(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 309--310
+[][] 
+ []
+
+[5 <F:/R/Rpackage_meadq/meadq/doc/figure/unnamed-chunk-22.pdf>]
+Overfull \hbox (14.20737pt too wide) in paragraph at lines 321--321
+[]\T1/lmtt/m/n/10 ## cmpt.n> ## show.ns(s$ns)  # This shows each network spike!
+  Can take a long time.[] 
+ []
+
 (F:\R\Rpackage_meadq\meadq\doc\meadq-intro.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 )
-Package color Info: Redefining color shadecolor on input line 296.
-
+Package color Info: Redefining color shadecolor on input line 336.
+ [6 <F:/R/Rpackage_meadq/meadq/doc/figure/unnamed-chunk-23.pdf>]
 
 Package natbib Warning: There were undefined citations.
 
-[3] (F:\R\Rpackage_meadq\meadq\doc\meadq-intro.aux) ) 
+[7] (F:\R\Rpackage_meadq\meadq\doc\meadq-intro.aux) ) 
 Here is how much of TeX's memory you used:
- 4988 strings out of 493921
- 68541 string characters out of 3144875
- 127533 words of memory out of 3000000
- 8187 multiletter control sequences out of 15000+200000
+ 5005 strings out of 493921
+ 68993 string characters out of 3144875
+ 128533 words of memory out of 3000000
+ 8199 multiletter control sequences out of 15000+200000
  29233 words of font info for 68 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,6n,32p,659b,256s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -488,9 +528,9 @@ iles (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.pfb><C:/Program Files (x86)
 /MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTeX 
 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
 s/type1/urw/palatino/uplri8a.pfb>
-Output written on meadq-intro.pdf (3 pages, 145988 bytes).
+Output written on meadq-intro.pdf (7 pages, 319150 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

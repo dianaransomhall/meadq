@@ -11,7 +11,4 @@ Description: Analysis and management of microelectrode array data
 License: GPL-2
 GithubRepo: meadq
 GithubUsername: dianaransomhall
-GithubRef: master
-GithubSHA1: 6cbfb32ddc2dcb482bdc99269c11c55dbb795c6f
 Built: R 3.1.0; ; 2014-06-02 20:27:02 UTC; windows
-VignetteBuilder: knitr

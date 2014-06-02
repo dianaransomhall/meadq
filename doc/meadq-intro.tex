@@ -75,7 +75,7 @@
 \begin{document}
 
 \onehalfspacing
-\title{mea package: From A to Z }
+\title{meadq package: From A to Z }
 
 \author{Diana Hall}
 \date{\today}
@@ -279,11 +279,51 @@ spikes in the recording.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{example}\hlstd{(compute.ns)}
+\hlkwd{example}\hlstd{(compute.ns,} \hlkwc{package} \hlstd{=} \hlstr{"sjemea"}\hlstd{)}
 \end{alltt}
-
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: no help found for 'compute.ns'}}\end{kframe}
+\begin{verbatim}
+## 
+## cmpt.n> data.file <- system.file("examples", "TC89_DIV15_A.nexTimestamps",
+## cmpt.n+                          package = "sjemea")
+## 
+## cmpt.n> s <- sanger.read.spikes( data.file, beg=400, end=700)
+## 
+## cmpt.n> s$ns <- compute.ns(s, ns.T=0.003, ns.N=10,sur=100)
+## 
+## cmpt.n> plot(s$ns, ylab='Count', xlab='Time (s)')
+\end{verbatim}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-21} 
+\begin{kframe}\begin{verbatim}
+## 
+## cmpt.n> plot(s$ns, xlim=c(450, 500),
+## cmpt.n+      xlab='Time (s)', ylab='Count')
+\end{verbatim}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-22} 
+\begin{kframe}\begin{verbatim}
+## 
+## cmpt.n> plot(s$ns$mean, xlab='Time (s)', ylab='Count', main='Mean NS')
+\end{verbatim}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-23} 
+\begin{kframe}\begin{verbatim}
+## 
+## cmpt.n> summary(s$ns)
+## 167 network spikes
+## recruitment 27.23 +/- 10.52
+## FWHM 0.023 +/- 0.013 (s)
+## 
+## cmpt.n> s$ns$brief
+##         n    peak.m   peak.sd    durn.m   durn.sd 
+## 167.00000  27.23353  10.51559   0.02315   0.01264 
+## 
+## cmpt.n> ## show.ns(s$ns)  # This shows each network spike!  Can take a long time.
+## cmpt.n> 
+## cmpt.n> 
+## cmpt.n>
+\end{verbatim}
+\end{kframe}
 \end{knitrout}
 
 
