@@ -9,4 +9,4 @@ Author: Diana Hall, Quanli Wang, Stephen Eglen
 Maintainer: Diana Hall <dianaransomhall@yahoo.com>
 Description: Analysis and management of microelectrode array data
 License: GPL-2
-VignetteBuilder: knitr
+
