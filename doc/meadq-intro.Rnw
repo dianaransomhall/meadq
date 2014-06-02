@@ -37,6 +37,7 @@
 To install this package, and then view this introductory vignette, do:
 
 <<install-meadq,eval=FALSE,echo=TRUE>>=
+# provide local file path to tar.gz, e.g.
 tarfile.path = "F:/R/Rpackage_meadq/meadq_1.0.1.tar.gz"
 install.packages(pkgs = tarfile.path, type="source", repos = NULL)
 vignette('meadq-intro', package='meadq')
@@ -76,8 +77,8 @@ demonstrate various routines.
 \subsection*{Help pages}
 A list of help pages associated with the package is given by
 \verb+help(package='meadq')+ command:
-<<help,echo=FALSE>>=
-cat(format(help(package='meadq')), sep = '\n') #need to grab output.
+<<help,eval=FALSE, echo=FALSE>>=
+help(package='meadq') 
 @
 
 
@@ -85,7 +86,7 @@ cat(format(help(package='meadq')), sep = '\n') #need to grab output.
 
 Convert the recorded data, which may be in a proprietary or otherwise non universal file type, into a type which may be read in by various softwares.  Following suggestions from the "program on Standards for Datasharing" by the International neuroinformatics coordinating facility \url{datasharing.incf.ord/ep/HDF5_data_standard}, code is provided to convert axion alpha map files to .h5 files that link spike train to meta-data about the experiment.  Current functionality is restricted to experimental meta data limited to a handful of variabes. However, additional information may be built in by creating a new function. 
 
-<<>>=
+<<creating h5 files, eval=FALSE ,echo=TRUE >>=
 # For example, choose .mapTimestamps: 
 print( system.file( "extdata", "ON_20140205_MW1007-26_DIV07_001.mapTimestamps",
                     package= "meadq") )
@@ -111,6 +112,36 @@ The most important items in the list are:
 \item[layout] Information regarding the spatial layout of the units.
 \end{description}
 
+
+
+\section*{create well summary spreadsheet}
+
+
+
+<<create-burst-data, eval = FALSE >>=
+data.file1 <- system.file("extdata", "ON_20140205_MW1007-26_DIV05_001.h5",
+                          package = "meadq")
+data.file2 <- system.file("extdata", "ON_20140205_MW1007-26_DIV07_001.h5",
+                          package = "meadq")
+data.file3 <- system.file("extdata", "ON_20140205_MW1007-26_DIV09_001.h5",
+                          package = "meadq")
+h5Files=c(data.file1, data.file2, data.file3 )
+
+create_burst_ont_Data(h5Files, save.rdata = TRUE )
+@
+
+A .csv file has been created in the library where this package is located in a folder called "prepared_data".  Two well level summaries are created: 1. well summaries computed across all AE (active electrodes:= >=5 spikes/min) 2. well summaries computed across all ABE (active bursting electrodes:= >=1 burst/min).  Use library file path .libPaths() to obtain library location.
+Note the since save.rdata=TRUE, the .h5 files have been converted into a list object s[[i]], 
+(i=file number) that can be easily loaded and manipulated
+
+<<load-burst-data-1, eval = TRUE >>=
+# to load data use the 'load' function, type ?load for more info
+# lets use an example for now
+data('example_ont_data' ) 
+@
+
+
+
 \section*{Burst analysis}
 
 Burst identification is done with:
@@ -120,9 +151,9 @@ Burst identification is done with:
 \end{enumerate}
 
 The MaxInterval method.
-<<bursts>>=
+<<load-burst-data, eval=FALSE >>=
 data.file <- system.file("data", "example_ont_data.rda",
-package = "meadq")
+ package = "meadq")
 load(data.file)
 @
 
@@ -130,11 +161,12 @@ So, for example, for electrode 2, we see the following bursts (just
 taking the head as there are many of them.  We can also easily plot
 the number of bursts on each electrode.
 
-<<show-burst-info>>=
-#head(s[[3]]$allb[[2]])
-#nbursts <- sapply(s[[3]]$allb, nrow)
-#plot(nbursts, xlab='Electrode number', ylab='Number of bursts',
-#     bty='n', las=1)
+<<show-burst-info, eval=TRUE>>=
+ s[[3]]$channels[[2]]
+ head(s[[3]]$allb[[2]])
+ nbursts <- sapply(s[[3]]$allb, nrow)
+ plot(nbursts, xlab='Electrode number', ylab='Number of bursts',
+     bty='n', las=1)
 @
 
 
@@ -144,7 +176,7 @@ in the \verb+s$allb+ component of the object.  Here we ask to see the
 burst information for twenty seconds of data from just the first five trains.
 
 <<burst-raster>>=
-#plot(s[[3]], beg=100, end=200, show.bursts=TRUE, whichcells=1:5)
+plot(s[[3]], beg=200, end=250, show.bursts=TRUE, whichcells=1:5)
 @
 
 Bursts are indicated with a red horizontal line, and the blue number
@@ -175,7 +207,7 @@ The blue dots are the peak of each network spikes.
 The mean network spike is also shown, averaged across all the network
 spikes in the recording.
 
-<<>>=
+<<network spikes>>=
 example(compute.ns, package="sjemea")
 @
 

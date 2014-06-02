@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.15)  2 JUN 2014 16:43
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.15)  2 JUN 2014 18:16
 entering extended mode
 **meadq-intro.tex
 (F:\R\Rpackage_meadq\meadq\doc\meadq-intro.tex
@@ -422,79 +422,170 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 91.
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 93.
-Package color Info: Redefining color shadecolor on input line 103.
-Package color Info: Redefining color shadecolor on input line 122.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 94.
+Package color Info: Redefining color shadecolor on input line 104.
+Package color Info: Redefining color shadecolor on input line 123.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 145.
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 147
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 142.
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 144
 .
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package color Info: Redefining color shadecolor on input line 149.
- [1
+) [1
 
 {C:/Users/Diana/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package color Info: Redefining color shadecolor on input line 162.
+Package color Info: Redefining color shadecolor on input line 154.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 190.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 175.
+Package color Info: Redefining color shadecolor on input line 191.
+
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 193--193
+[][]\T1/lmtt/m/n/10 data.file1[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
+tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV05_001.h5"[][],[] [
+]package[] []=[] []"meadq"[][])[][] 
+ []
 
 
-Package natbib Warning: Citation `neuroexplorer' on page 2 undefined on input l
-ine 203.
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 194--194
+[][]\T1/lmtt/m/n/10 data.file2[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
+tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV07_001.h5"[][],[] [
+]package[] []=[] []"meadq"[][])[][] 
+ []
+
+
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 195--195
+[][]\T1/lmtt/m/n/10 data.file3[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
+tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV09_001.h5"[][],[] [
+]package[] []=[] []"meadq"[][])[][] 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.204 ... is located in a folder called "prepared_
+                                                  data".  Two well level sum...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.207 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (64.4964pt too wide) in paragraph at lines 204--207
+\T1/ppl/m/n/10 "prepared$[]\OML/zplm/m/it/10 ata\OT1/ppl/m/n/10 ".\OML/zplm/m/i
+t/10 Twowelllevelsummariesarecreated \OT1/zplm/m/n/10 : \OT1/ppl/m/n/10 1.\OML/
+zplm/m/it/10 wellsummariescomputedacrossallAE\OT1/zplm/m/n/10 (\OML/zplm/m/it/1
+0 activeelectrodes \OT1/zplm/m/n/10 :=\OML/zplm/m/it/10 >\OT1/zplm/m/n/10 =$
+ []
+
+
+Overfull \hbox (343.68303pt too wide) in paragraph at lines 204--207
+$\OT1/ppl/m/n/10 5\OML/zplm/m/it/10 spikes\OT1/zplm/m/n/10 /\OML/zplm/m/it/10 m
+in\OT1/zplm/m/n/10 )\OT1/ppl/m/n/10 2.\OML/zplm/m/it/10 wellsummariescomputedac
+rossallABE\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 activeburstingelectrodes \OT1/zpl
+m/m/n/10 :=\OML/zplm/m/it/10 >\OT1/zplm/m/n/10 = \OT1/ppl/m/n/10 1\OML/zplm/m/i
+t/10 burst\OT1/zplm/m/n/10 /\OML/zplm/m/it/10 min\OT1/zplm/m/n/10 )\OT1/ppl/m/n
+/10 .\OML/zplm/m/it/10 Uselibraryfilepath\OT1/ppl/m/n/10 .\OML/zplm/m/it/10 lib
+Paths\OT1/zplm/m/n/10 ()\OML/zplm/m/it/10 toobtainlibrarylocation\OT1/ppl/m/n/1
+0 .\OML/zplm/m/it/10 Notethesincesave\OT1/ppl/m/n/10 .\OML/zplm/m/it/10 rdata \
+OT1/zplm/m/n/10 =$
+ []
+
+
+Overfull \hbox (55.56253pt too wide) in paragraph at lines 204--207
+$\OML/zplm/m/it/10 TRUE\OT1/ppl/m/n/10 , \OML/zplm/m/it/10 the\OT1/ppl/m/n/10 .
+\OML/zplm/m/it/10 h\OT1/ppl/m/n/10 5\OML/zplm/m/it/10 fileshavebeenconvertedint
+oalistobjects\OT1/zplm/m/n/10 [[\OML/zplm/m/it/10 i\OT1/zplm/m/n/10 ]]\OT1/ppl/
+m/n/10 , \OT1/zplm/m/n/10 (\OML/zplm/m/it/10 i \OT1/zplm/m/n/10 = \OML/zplm/m/i
+t/10 filenumber\OT1/zplm/m/n/10 )\OML/zplm/m/it/10 thatcanbeeasilyloadedandmani
+pulated$ 
+ []
 
 Package color Info: Redefining color shadecolor on input line 209.
 [2]
-Package color Info: Redefining color shadecolor on input line 227.
-Package color Info: Redefining color shadecolor on input line 243.
 
+Package natbib Warning: Citation `neuroexplorer' on page 3 undefined on input l
+ine 225.
 
-Package natbib Warning: Citation `Tokdar2010' on page 3 undefined on input line
- 255.
+Package color Info: Redefining color shadecolor on input line 231.
+Package color Info: Redefining color shadecolor on input line 245.
+<figure/show-burst-info.pdf, id=18, 505.89pt x 505.89pt>
+File: figure/show-burst-info.pdf Graphic file (type pdf)
 
-
-Package natbib Warning: Citation `Eytan2006' on page 3 undefined on input line 
-269.
-
-Package color Info: Redefining color shadecolor on input line 280.
-<figure/unnamed-chunk-21.pdf, id=16, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-21.pdf Graphic file (type pdf)
-
-<use figure/unnamed-chunk-21.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-21.pdf used on input line 296.
+<use figure/show-burst-info.pdf>
+Package pdftex.def Info: figure/show-burst-info.pdf used on input line 270.
 (pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 296--297
+Overfull \hbox (15.0pt too wide) in paragraph at lines 270--271
 [][] 
  []
 
-[3] <figure/unnamed-chunk-22.pdf, id=21, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-22.pdf Graphic file (type pdf)
+[3]
+Package color Info: Redefining color shadecolor on input line 282.
+ <figure/burst-raster.pdf, id=22, 505.89pt x 505.89pt>
+File: figure/burst-raster.pdf Graphic file (type pdf)
 
-<use figure/unnamed-chunk-22.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-22.pdf used on input line 303.
+<use figure/burst-raster.pdf>
+Package pdftex.def Info: figure/burst-raster.pdf used on input line 287.
 (pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 303--304
+Overfull \hbox (15.0pt too wide) in paragraph at lines 287--288
 [][] 
  []
 
-[4 <F:/R/Rpackage_meadq/meadq/doc/figure/unnamed-chunk-21.pdf>]
-<figure/unnamed-chunk-23.pdf, id=30, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-23.pdf Graphic file (type pdf)
+[4 <F:/R/Rpackage_meadq/meadq/doc/figure/show-burst-info.pdf>]
 
-<use figure/unnamed-chunk-23.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-23.pdf used on input line 309.
+Package natbib Warning: Citation `Tokdar2010' on page 5 undefined on input line
+ 296.
+
+
+Package natbib Warning: Citation `Eytan2006' on page 5 undefined on input line 
+310.
+
+Package color Info: Redefining color shadecolor on input line 321.
+[5 <F:/R/Rpackage_meadq/meadq/doc/figure/burst-raster.pdf>]
+<figure/network_spikes1.pdf, id=40, 505.89pt x 505.89pt>
+File: figure/network_spikes1.pdf Graphic file (type pdf)
+
+<use figure/network_spikes1.pdf>
+Package pdftex.def Info: figure/network_spikes1.pdf used on input line 337.
 (pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 309--310
+Overfull \hbox (15.0pt too wide) in paragraph at lines 337--338
 [][] 
  []
 
-[5 <F:/R/Rpackage_meadq/meadq/doc/figure/unnamed-chunk-22.pdf>]
-Overfull \hbox (14.20737pt too wide) in paragraph at lines 321--321
+<figure/network_spikes2.pdf, id=41, 505.89pt x 505.89pt>
+File: figure/network_spikes2.pdf Graphic file (type pdf)
+
+<use figure/network_spikes2.pdf>
+Package pdftex.def Info: figure/network_spikes2.pdf used on input line 344.
+(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 344--345
+[][] 
+ []
+
+[6 <F:/R/Rpackage_meadq/meadq/doc/figure/network_spikes1.pdf>]
+<figure/network_spikes3.pdf, id=50, 505.89pt x 505.89pt>
+File: figure/network_spikes3.pdf Graphic file (type pdf)
+
+<use figure/network_spikes3.pdf>
+Package pdftex.def Info: figure/network_spikes3.pdf used on input line 350.
+(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 350--351
+[][] 
+ []
+
+[7 <F:/R/Rpackage_meadq/meadq/doc/figure/network_spikes2.pdf>]
+Overfull \hbox (14.20737pt too wide) in paragraph at lines 362--362
 []\T1/lmtt/m/n/10 ## cmpt.n> ## show.ns(s$ns)  # This shows each network spike!
   Can take a long time.[] 
  []
@@ -504,33 +595,34 @@ Overfull \hbox (14.20737pt too wide) in paragraph at lines 321--321
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 )
-Package color Info: Redefining color shadecolor on input line 336.
- [6 <F:/R/Rpackage_meadq/meadq/doc/figure/unnamed-chunk-23.pdf>]
+Package color Info: Redefining color shadecolor on input line 377.
+ [8 <F:/R/Rpackage_meadq/meadq/doc/figure/network_spikes3.pdf>]
 
 Package natbib Warning: There were undefined citations.
 
-[7] (F:\R\Rpackage_meadq\meadq\doc\meadq-intro.aux) ) 
+[9] (F:\R\Rpackage_meadq\meadq\doc\meadq-intro.aux) ) 
 Here is how much of TeX's memory you used:
- 5005 strings out of 493921
- 68993 string characters out of 3144875
- 128533 words of memory out of 3000000
- 8199 multiletter control sequences out of 15000+200000
- 29233 words of font info for 68 fonts, out of 3000000 for 9000
+ 5019 strings out of 493921
+ 69272 string characters out of 3144875
+ 129533 words of memory out of 3000000
+ 8207 multiletter control sequences out of 15000+200000
+ 31193 words of font info for 72 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,6n,32p,659b,256s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts
 /enc/dvips/fontname/8r.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/l
 m/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/urw/palatino/uplri8a.pfb>
-Output written on meadq-intro.pdf (7 pages, 319150 bytes).
+mmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
+type1/urw/palatino/uplri8a.pfb>
+Output written on meadq-intro.pdf (9 pages, 381305 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

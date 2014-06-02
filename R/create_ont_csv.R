@@ -5,7 +5,7 @@
 
 
 
-create_ont_csv<-function( h5Files = NULL , save.rdata = TRUE ){  
+create_ont_csv<-function( h5Files = NULL , save.rdata = TRUE, param.file = NULL ){  
   
   #load necessary packages
   library(sjemea)
@@ -27,13 +27,19 @@ create_ont_csv<-function( h5Files = NULL , save.rdata = TRUE ){
   dir.create( prepared.dir )
   
   
-  # csv.filename<-"F:/Duke/Angelman_20140211/prepared_data/ont_data_summary_AEfilt.csv"
-  csv.filename.AEfilt<-paste( prepared.dir, "/ont_data_summary_AEfilt.csv",sep=""  )
-  csv.filename.ABEfilt<-paste( prepared.dir, "/ont_data_summary_ABEfilt.csv",sep=""  )
+  # file names 
+  assign( "csv.filename.AEfilt",paste( prepared.dir, "/ont_data_summary_AEfilt.csv",sep=""),
+          envir = .GlobalEnv )
+  assign( "csv.filename.ABEfilt",paste( prepared.dir, "/ont_data_summary_ABEfilt.csv",sep=""  ),
+          envir = .GlobalEnv )
   
  
-  param.file<-choose.files(caption="Choose parameter file ")
-  source( param.file  ) 
+  if ( is.null( param.file ) ){
+    data('chgv_parameters' )
+  } else {
+    source( param.file, local=TRUE  ) 
+  }
+
   
   
   create_burst_ont_Data(h5Files=h5Files, save.rdata=save.rdata )

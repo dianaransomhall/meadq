@@ -89,6 +89,7 @@ To install this package, and then view this introductory vignette, do:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
+\hlcom{# provide local file path to tar.gz, e.g.}
 \hlstd{tarfile.path} \hlkwb{=} \hlstr{"F:/R/Rpackage_meadq/meadq_1.0.1.tar.gz"}
 \hlkwd{install.packages}\hlstd{(}\hlkwc{pkgs} \hlstd{= tarfile.path,} \hlkwc{type} \hlstd{=} \hlstr{"source"}\hlstd{,} \hlkwc{repos} \hlstd{=} \hlkwa{NULL}\hlstd{)}
 \hlkwd{vignette}\hlstd{(}\hlstr{"meadq-intro"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"meadq"}\hlstd{)}
@@ -122,10 +123,6 @@ document.
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlkwd{require}\hlstd{(meadq)}
-\end{alltt}
-
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: there is no package called 'meadq'}}\begin{alltt}
 \hlkwd{require}\hlstd{(knitr)}
 \hlstd{opts_chunk}\hlopt{$}\hlkwd{set}\hlstd{(}\hlkwc{cache} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 \hlstd{opts_chunk}\hlopt{$}\hlkwd{set}\hlstd{(}\hlkwc{dev} \hlstd{=} \hlstr{"pdf"}\hlstd{)}
@@ -145,12 +142,7 @@ demonstrate various routines.
 \subsection*{Help pages}
 A list of help pages associated with the package is given by
 \verb+help(package='meadq')+ command:
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: there is no package called 'meadq'}}\end{kframe}
-\end{knitrout}
 
 
 
@@ -164,16 +156,9 @@ Convert the recorded data, which may be in a proprietary or otherwise non univer
 \hlcom{# For example, choose .mapTimestamps:}
 \hlkwd{print}\hlstd{(}\hlkwd{system.file}\hlstd{(}\hlstr{"extdata"}\hlstd{,} \hlstr{"ON_20140205_MW1007-26_DIV07_001.mapTimestamps"}\hlstd{,}
     \hlkwc{package} \hlstd{=} \hlstr{"meadq"}\hlstd{))}
-\end{alltt}
-\begin{verbatim}
-## [1] ""
-\end{verbatim}
-\begin{alltt}
 \hlkwd{make.axion.map.to.h5.dh}\hlstd{()}
 \end{alltt}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: could not find function "{}make.axion.map.to.h5.dh"{}}}\end{kframe}
+\end{kframe}
 \end{knitrout}
 
 
@@ -196,6 +181,43 @@ The most important items in the list are:
 \item[layout] Information regarding the spatial layout of the units.
 \end{description}
 
+
+
+\section*{create well summary spreadsheet}
+
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{data.file1} \hlkwb{<-} \hlkwd{system.file}\hlstd{(}\hlstr{"extdata"}\hlstd{,} \hlstr{"ON_20140205_MW1007-26_DIV05_001.h5"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"meadq"}\hlstd{)}
+\hlstd{data.file2} \hlkwb{<-} \hlkwd{system.file}\hlstd{(}\hlstr{"extdata"}\hlstd{,} \hlstr{"ON_20140205_MW1007-26_DIV07_001.h5"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"meadq"}\hlstd{)}
+\hlstd{data.file3} \hlkwb{<-} \hlkwd{system.file}\hlstd{(}\hlstr{"extdata"}\hlstd{,} \hlstr{"ON_20140205_MW1007-26_DIV09_001.h5"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"meadq"}\hlstd{)}
+\hlstd{h5Files} \hlkwb{=} \hlkwd{c}\hlstd{(data.file1, data.file2, data.file3)}
+
+\hlkwd{create_burst_ont_Data}\hlstd{(h5Files,} \hlkwc{save.rdata} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+A .csv file has been created in the library where this package is located in a folder called "prepared_data".  Two well level summaries are created: 1. well summaries computed across all AE (active electrodes:= >=5 spikes/min) 2. well summaries computed across all ABE (active bursting electrodes:= >=1 burst/min).  Use library file path .libPaths() to obtain library location.
+Note the since save.rdata=TRUE, the .h5 files have been converted into a list object s[[i]], 
+(i=file number) that can be easily loaded and manipulated
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# to load data use the 'load' function, type ?load for more info lets use an}
+\hlcom{# example for now}
+\hlkwd{data}\hlstd{(}\hlstr{"example_ont_data"}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+
+
+
 \section*{Burst analysis}
 
 Burst identification is done with:
@@ -211,11 +233,7 @@ The MaxInterval method.
 \hlstd{data.file} \hlkwb{<-} \hlkwd{system.file}\hlstd{(}\hlstr{"data"}\hlstd{,} \hlstr{"example_ont_data.rda"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"meadq"}\hlstd{)}
 \hlkwd{load}\hlstd{(data.file)}
 \end{alltt}
-
-
-{\ttfamily\noindent\color{warningcolor}{\#\# Warning: cannot open compressed file '', probable reason 'Invalid argument'}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: cannot open the connection}}\end{kframe}
+\end{kframe}
 \end{knitrout}
 
 
@@ -226,10 +244,31 @@ the number of bursts on each electrode.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlcom{# head(s[[3]]$allb[[2]]) nbursts <- sapply(s[[3]]$allb, nrow) plot(nbursts,}
-\hlcom{# xlab='Electrode number', ylab='Number of bursts', bty='n', las=1)}
+\hlstd{s[[}\hlnum{3}\hlstd{]]}\hlopt{$}\hlstd{channels[[}\hlnum{2}\hlstd{]]}
+\end{alltt}
+\begin{verbatim}
+## [1] "A1_12"
+\end{verbatim}
+\begin{alltt}
+\hlkwd{head}\hlstd{(s[[}\hlnum{3}\hlstd{]]}\hlopt{$}\hlstd{allb[[}\hlnum{2}\hlstd{]])}
+\end{alltt}
+\begin{verbatim}
+##      beg end    IBI len   durn mean.isis SI
+## [1,]   6  22     NA  17 0.3415   0.02135  1
+## [2,]  27  31  4.905   5 0.2251   0.05628  1
+## [3,]  36  42  2.818   7 0.8008   0.13347  1
+## [4,]  55  76  9.969  22 0.6484   0.03088  1
+## [5,]  98 103 21.426   6 0.9942   0.19885  1
+## [6,] 129 134 14.458   6 0.6998   0.13997  1
+\end{verbatim}
+\begin{alltt}
+\hlstd{nbursts} \hlkwb{<-} \hlkwd{sapply}\hlstd{(s[[}\hlnum{3}\hlstd{]]}\hlopt{$}\hlstd{allb, nrow)}
+\hlkwd{plot}\hlstd{(nbursts,} \hlkwc{xlab} \hlstd{=} \hlstr{"Electrode number"}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{"Number of bursts"}\hlstd{,} \hlkwc{bty} \hlstd{=} \hlstr{"n"}\hlstd{,}
+    \hlkwc{las} \hlstd{=} \hlnum{1}\hlstd{)}
 \end{alltt}
 \end{kframe}
+\includegraphics[width=\maxwidth]{figure/show-burst-info} 
+
 \end{knitrout}
 
 
@@ -242,9 +281,11 @@ burst information for twenty seconds of data from just the first five trains.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlcom{# plot(s[[3]], beg=100, end=200, show.bursts=TRUE, whichcells=1:5)}
+\hlkwd{plot}\hlstd{(s[[}\hlnum{3}\hlstd{]],} \hlkwc{beg} \hlstd{=} \hlnum{200}\hlstd{,} \hlkwc{end} \hlstd{=} \hlnum{250}\hlstd{,} \hlkwc{show.bursts} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{whichcells} \hlstd{=} \hlnum{1}\hlopt{:}\hlnum{5}\hlstd{)}
 \end{alltt}
 \end{kframe}
+\includegraphics[width=\maxwidth]{figure/burst-raster} 
+
 \end{knitrout}
 
 
@@ -293,20 +334,20 @@ spikes in the recording.
 ## cmpt.n> plot(s$ns, ylab='Count', xlab='Time (s)')
 \end{verbatim}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-21} 
+\includegraphics[width=\maxwidth]{figure/network_spikes1} 
 \begin{kframe}\begin{verbatim}
 ## 
 ## cmpt.n> plot(s$ns, xlim=c(450, 500),
 ## cmpt.n+      xlab='Time (s)', ylab='Count')
 \end{verbatim}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-22} 
+\includegraphics[width=\maxwidth]{figure/network_spikes2} 
 \begin{kframe}\begin{verbatim}
 ## 
 ## cmpt.n> plot(s$ns$mean, xlab='Time (s)', ylab='Count', main='Mean NS')
 \end{verbatim}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-23} 
+\includegraphics[width=\maxwidth]{figure/network_spikes3} 
 \begin{kframe}\begin{verbatim}
 ## 
 ## cmpt.n> summary(s$ns)

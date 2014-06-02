@@ -11,7 +11,7 @@ wrapper for create_burst_ont_Data, which prompts for param files, and .h5 files.
 }
 
 \usage{
-create_burst_ont_Data(h5Files, save.rdata = F)
+create_burst_ont_Data(h5Files, save.rdata = F, param.file = NULL)
 }
 
 %- maybe also 'usage' for other objects documented here.
@@ -25,6 +25,11 @@ A list of paths to .h5 files.  If not specified or =NULL then the user will be p
   \item{save.rdata}{
 setting to true TRUE creates a .rdata file in the same directory where the first .h5 file came from. FALSE makes no .rdata file.
 }
+
+  \item{param.file }{
+The parameters applied to data for max interval burst detection.  If NULL, then default parameters that come with pacakge are used.
+}
+
 }
 
 \details{
