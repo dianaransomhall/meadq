@@ -25,7 +25,7 @@
 \begin{document}
 
 \onehalfspacing
-\title{mea package: From A to Z }
+\title{meadq package: From A to Z }
 
 \author{Diana Hall}
 \date{\today}
@@ -87,7 +87,7 @@ Convert the recorded data, which may be in a proprietary or otherwise non univer
 
 <<>>=
 # For example, choose .mapTimestamps: 
-print( system.file( "extdata/ON_20140205_MW1007-26_DIV07_001.mapTimestamps",
+print( system.file( "extdata", "ON_20140205_MW1007-26_DIV07_001.mapTimestamps",
                     package= "meadq") )
 make.axion.map.to.h5.dh()
 @
@@ -113,20 +113,17 @@ The most important items in the list are:
 
 \section*{Burst analysis}
 
-We have several routines implemented for burst analysis:
-
+Burst identification is done with:
 \begin{enumerate}
 \item Max Interval method, as described by Neuroexplorer \citep{neuroexplorer}
-\item Poisson surprise \citep{Legendy1985}
-\item Rank suprise \citep{Gourevitch2007}
+
 \end{enumerate}
 
-Out of these, the most tested has been the MaxInterval method.
+The MaxInterval method.
 <<bursts>>=
-data.file <- system.file("examples", "TC89_DIV15_A.nexTimestamps",
-package = "sjemea")
-s <- sanger.read.spikes(data.file)
-s$allb <- spikes.to.bursts.surprise(s)
+data.file <- system.file("data", "example_ont_data.rda",
+package = "meadq")
+load(data.file)
 @
 
 So, for example, for electrode 2, we see the following bursts (just
@@ -134,10 +131,10 @@ taking the head as there are many of them.  We can also easily plot
 the number of bursts on each electrode.
 
 <<show-burst-info>>=
-head(s$allb[[2]])
-nbursts <- sapply(s$allb, nrow)
-plot(nbursts, xlab='Electrode number', ylab='Number of bursts',
-     bty='n', las=1)
+#head(s[[3]]$allb[[2]])
+#nbursts <- sapply(s[[3]]$allb, nrow)
+#plot(nbursts, xlab='Electrode number', ylab='Number of bursts',
+#     bty='n', las=1)
 @
 
 
@@ -147,7 +144,7 @@ in the \verb+s$allb+ component of the object.  Here we ask to see the
 burst information for twenty seconds of data from just the first five trains.
 
 <<burst-raster>>=
-plot(s, beg=100, end=200, show.bursts=TRUE, whichcells=1:5)
+#plot(s[[3]], beg=100, end=200, show.bursts=TRUE, whichcells=1:5)
 @
 
 Bursts are indicated with a red horizontal line, and the blue number
@@ -164,14 +161,6 @@ is also a generic ``bursts'' package:
 \url{http://cran.r-project.org/web/packages/bursts/bursts.pdf}.
 
 
-\subsection*{Log interspike intervals}
-
-To help determine burst parameters, it is often helpful to look at a
-histogram of the interspike interval, plotted on a log scale.  
-
-TODO: add this code from
-\url{~/proj/sangermea/pdn/logisi_condtable.R}.
-\url{~/proj/sangermea/logisi/logisi_only1.R}
 
 \section*{Network spikes}
 
@@ -187,134 +176,8 @@ The mean network spike is also shown, averaged across all the network
 spikes in the recording.
 
 <<>>=
-example(compute.ns)
+example(compute.ns, package="sjemea")
 @
-
-\section*{Correlation index}
-
-The correlation index plot was devised by \citet{Wong1993} as a method to
-estimate how correlation between any pair of neurons on the array
-depends (if at all) upon the distance separating the pair.  For
-retinal waves, the correlation index usually has an
-exponentially-decaying profile.  For other recordings,
-(e.g. hippocampal cultures), the profile tends to be flatter.
-
-<<>>=
-jay.data.file <- system.file("examples", "P9_CTRL_MY1_1A.txt",
-                         package = "sjemea")
-jay.s <- jay.read.spikes( jay.data.file)
-plot.corr.index(jay.s)
-@
-
-\subsection*{Correlation analysis}
-
-We propose a new tiling-based measure for measuring the correlation
-between pairs of spike trains (ongoing work by Catherine Cutts).  Here
-is an example of how to compute a tiling correlation matrix for a
-group of spike trains.
-
-<<tiling-correlation>>=
-data.file <- system.file("examples", "P9_CTRL_MY1_1A.txt",
-                         package = "sjemea")
-s <- jay.read.spikes(data.file)
-t2 <- tiling.allpairwise(s)
-require(lattice); levelplot(t2)
-@ 
-
-
-
-
-\section*{Movie making}
-
-We have code to make movies of the MEA activity.  For example, see the
-supplementary information to our 2003 paper:
-\url{http://www.jneurosci.org/content/23/7/2851/suppl/DC1}.  The code
-makes a sequence of PNG frames (every 0.5 s by default).  It then uses
-an external unix tool (convert) to create the movie.
-
-
-
-
-
-\section*{Batch analysis}
-
-As this code is all written in the R progamming language, it scales
-itself well to the notion that the analysis can be automated to run
-over many data files in batch, rather than running one at a time.  To
-this end, for the Genes to Cognition project, we devised a system
-where data files were expected in one directory, and output files
-would be written to a particular directory.  See the R function
-\texttt{sanger.init} and in particular the variables
-\texttt{mea.data.dir, mea.table.dir, mea.op.dir}.  A spreadsheet
-containing the files to be analysed is passed to a script that
-analyses each row of the spreadsheet independently.  This system was
-used to analyse several hundreds of files simultaneously.
-
-
-\section*{Data readers}
-\label{sec:input}
-
-The examples above have used example data stored within the package to
-read in data.  Here are the names of some (not all) other readers
-that are available in the package.
- 
-\begin{description}
-\item[ncl.read.spikes]  -- Multi-Channel system MCS output of spike
-  times and cut outs.  (Named ``ncl'', as the data came from Newcastle.)
-\item[jay.read.spikes] -- Used for Demas et al. (2003)  (Named ``jay''
-  as the data was recorded by Jay Demas.)
-\item[h5.read.spikes] -- HDF5 format, as described in the current
-  ``waverepo'' project \citep{Eglen2014}.
-\item[sql.read.spikes] -- Prototype using SQL to store data.  This has
-  not been used for several years.
-\item[sanger.read.spikes] -- Multi-channel system from the Sanger
-  Genes to Cognition project.
-\item[nex.read.spikes] -- Neuroexplorer timestamp files can be read
-  in.  I have adapted the matlab code from
-  \url{http://www.neuroexplorer.com/code.html} to work in R.
-\end{description}
-
-\subsection*{Handling new data}
-
-Although these old readers still work, where possible, we should use
-the HDF5 format for data storage.  The preferred approach (as taken
-with the ``waverepo'' project), is to convert data as soon as possible
-into HDF5.
-
-Some older routines exist for reading in binary format
-(e.g. \texttt{mm.read.spikes}) but these are quite old now and
-cumbersome to maintain.  Whenever possible, data collected from
-laboratories should either be text or HDF5.
-
-\subsection*{Multi-well arrays}
-
-Through a collaboration with Dr Tim Shafer's group at EPA, we are
-developing code for handling multi-well data.  (For example, so that
-each well can be analysed independently in an efficient manner.)  This
-introduces an extra layer of abstraction into the geometry of the
-array, in that an electrode is part of a well, and there are many
-wells on one array (or ``plate'').
-
-\section*{Other features}
-
-Interactive facilities for viewing spike times were in earlier
-versions of the code, but Tk() widgets conflicted with the use of
-parallel() code.  I think this has now been fixed, so we might be able to
-return to adding interactive features.
-
-\subsection*{History}
-
-This package was originally written for research that was published in
-\citep{Demas2003}.  Since then it has been used by several other
-research groups.
-
-\subsection*{Acknowledgements}
-This work has been financially supported by grants from the Wellcome
-Trust, BBSRC and EPSRC.  Zhengzheng Zhang provided the \texttt{logisi}
-function.  I thank Paul Charlesworth for many discussions about
-electrophysiological analysis.
-
-
 
 \bibliographystyle{jneurosci}
 \bibliography{sjemea}
@@ -322,7 +185,7 @@ electrophysiological analysis.
 \subsection*{Compiling this document}
 
 <<eval=FALSE,include=TRUE>>=
-require(knitr); knit2pdf('sjemea-intro.Rnw')
+require(knitr); knit2pdf('meadq-into.Rnw')
 @
 
 
