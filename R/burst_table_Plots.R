@@ -33,14 +33,19 @@ burst_table_Plots<-function( param.file=NULL, h5Files = NULL ){
   
   #list of parameters needed for burst algorithm
   if ( is.null(param.file) ){
-    param.file<-choose.files(caption="Choose parameter file ")
-    source( param.file  ) 
+    param.file<-system.file("data","chgv_parameters.rda",package='meadq')
+    load( param.file  ) 
+  } else {
+    load( param.file )
   }
  
   
   #filter and get burst data
-  if (is.element( substring(h5Files,nchar(h5Files)-4,nchar(h5Files)), 
-                  c("RData", "rdata", "Rdata", "rData","rda") ) ) {
+  if ( grepl( pattern= ".rda",x=basename(h5Files), fixed=T) |
+         grepl( pattern= "RData",x=basename(h5Files), fixed=T) |
+         grepl( pattern= "rdata",x=basename(h5Files), fixed=T) |
+         grepl( pattern= "rData",x=basename(h5Files), fixed=T) |
+         grepl( pattern= "Rdata",x=basename(h5Files), fixed=T) ) {
     load( h5Files ) #load in .RData, should be called s already
   } else {
     s<-filter.spikes.burst.info(h5Files)
