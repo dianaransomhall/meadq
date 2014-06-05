@@ -1,0 +1,49 @@
+%Export_timestamps_from_map_files_Example.nsc
+%author: Diana Hall
+%date: 01_30_2013
+%Reads all .map data files in a directory ( filefilter)
+%Exports timestamps to a text file for processing in R
+%to the savefolder
+%INPUT:	 .MAP file
+%OUTPUT: .mapTimestamp file
+
+% explanations of functions used in code are found in neuroExplorer manual
+
+%Example: give directory path of .map files
+%filefilter ="L:\Lab\NHEERL_MEA\Hall\ToxCast\Diana_James\20120619\mapFiles\*.map"
+
+% give directory path of where you want .mapTimestamps converted
+% you may need to just manually change file extensions after processing
+% if you get "filename.map.mapTimestamp" to "filename.mapTimestamp" 
+
+%save_folder = "L:\Lab\NHEERL_MEA\Hall\ToxCast\Diana_James\20120619\mapTimestampFiles\"
+
+
+
+
+
+doc = 0
+filefilter ="C:\Users\dhall05\Desktop\*.map"
+res = Dialog(doc, filefilter, "File Filter:", "string" )
+% create save folder
+position1 = Find(filefilter, "*" )
+save_folder = Left( filefilter, position1-1)
+
+Trace(save_folder, " timestamps have been saved in a text file")
+
+n= GetFileCount(filefilter)
+
+Trace(n, "files")
+for i=1 to n
+name = GetFileName(i)
+doc = OpenDocument (name)
+doc_title=GetDocTitle(doc)
+save_path= save_folder + doc_title + ".mapTimestamps"
+
+stampslabel = GetDocPath(doc) + "Timestamps"
+if doc > 0
+SaveAsTextFile(doc, save_path)
+Trace(name, "timestamps have been saved in a text file")
+CloseDocument(doc)
+end
+end
