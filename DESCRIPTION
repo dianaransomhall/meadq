@@ -3,18 +3,16 @@ Type: Package
 Title: analysis of microelectrode array files
 Version: 1.0.1
 Depends:
-    sjemea,
-    lattice,
-    R (>= 3.1.0)
+    R (>= 3.0.0)
 Suggests:
+    sjemea,
     R.matlab,
     rhdf5,
     knitr
 Date: 2014-05-02
-Author: Diana Hall, Quanli Wang, Stephen Eglen
+Author: Diana Hall <dianaransomhall@yahoo.com>
 Maintainer: Diana Hall <dianaransomhall@yahoo.com>
 Description: Analysis and management of microelectrode array data
-License: GPL-2
-GithubRepo: meadq
-GithubUsername: dianaransomhall
-Built: R 3.1.0; ; 2014-06-02 20:27:02 UTC; windows
+License: GPL (>= 2)
+
+
