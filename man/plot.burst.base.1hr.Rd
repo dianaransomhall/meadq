@@ -31,7 +31,7 @@ plot.burst.base.1hr( s , resp , resp.label, ctr.file.ind=1 , trt.file.ind = 2 )
   s[[ctr.file.ind]] must exist. Default: ctr.file.ind=1
 }
 
-  \item{ trr.file.ind }{
+  \item{ trt.file.ind }{
   an index of which file within the spike object (s) e.g. ctr.file.ind = 3, which means
   s[[trt.file.ind]] must exist. Default: trt.file.ind=2
 }

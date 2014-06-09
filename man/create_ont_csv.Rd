@@ -11,7 +11,7 @@ wrapper for create_burst_ont_Data, which prompts for param files, and .h5 files.
 }
 
 \usage{
-create_burst_ont_Data(h5Files, save.rdata = F, param.file = NULL)
+create_ont_csv(h5Files, save.rdata = F, param.file = NULL)
 }
 
 %- maybe also 'usage' for other objects documented here.

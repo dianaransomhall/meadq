@@ -5,7 +5,7 @@
 
 
 
-create_ont_csv<-function( h5Files = NULL , save.rdata = TRUE, param.file = NULL ){  
+create_ont_csv<-function( h5Files = NULL, save.rdata = TRUE, param.file = NULL ){  
   
   #load necessary packages
   library(sjemea)

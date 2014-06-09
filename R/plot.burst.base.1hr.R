@@ -1,4 +1,4 @@
-plot.burst.base.1hr<-function(s , resp, resp.label, ctr.file.ind=1 , trt.file.ind = 2 ){  
+plot.burst.base.1hr<-function(s, resp, resp.label, ctr.file.ind=1 , trt.file.ind = 2 ){  
   
   #resp="meanfiringrate" ; resp.label="Mean Firing Rate (Hz)"  
   if ( length(s[[ctr.file.ind]]$well)<=12 ){

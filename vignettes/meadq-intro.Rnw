@@ -1,6 +1,6 @@
-%\VignetteIndexEntry{sjemea}
+%\VignetteIndexEntry{meadq }
 %\VignetteKeywords{MEA}
-%\VignettePackage{sjemea}
+%\VignettePackage{meadq}
 %\VignetteEngine{knitr::knitr}
 \documentclass{article}
 \usepackage{mathpazo}
@@ -19,83 +19,278 @@
 \newcommand{\dynamic}{(Dynamic)}
 \newcommand{\static}{(Static)}
 \newcommand{\hdfgroup}[1]{\texttt{#1}}
-%% Place all figures at end of paper?
-%%\usepackage[noheads,nomarkers]{endfloat}
+
 
 \begin{document}
 
 \onehalfspacing
-\title{An introduction to the sjemea package}
+\title{meadq package: from A to Z}
 
-\author{S. J. Eglen}
+\author{Diana Hall}
 \date{\today}
 
 \maketitle
 
+\section*{Introduction}
 
+This is an introduction to the abilities of the meadq package
+for analysis of multielectrode array data.  The program is specifically suited to analyze data from the 12 \& 48 well MEA plates, such as those from Axion Biosystems.  It is not a comprehensive guide, but simply gives examples of what can be done with the package.
+The package contains some example data sets which are used here to
+demonstrate various routines. 
+
+% * is used to remove the default numbering of sections
 \section*{Installation}
-To install this package, and then view this introductory vignette, do:
+To install this package, a binary source code may be used or github may be used for latest version. Package sources via the URL \url{http://github.com/dianaransomhall/meadq}.and then view this introductory vignette
 
-<<install-sjemea,eval=FALSE,echo=TRUE>>=
+\subsection*{Installation using source}
+<<install-sjemea, eval=FALSE, echo=TRUE>>=
 tarfile.path = "F:/R/Rpackage_meadq/meadq_1.0.1.tar.gz"
 install.packages(pkgs = tarfile.path, type="source", repos = NULL)
-vignette('sjemea-intro', package='sjemea')
+vignette('meadq-intro', package='meadq')
 @
 
-Alternatively, if you want to get the latest version of the package,
-you can install it in the following manner:
+\subsection*{Installation using github }
+Alternatively, most recent version meadq may be downloaded from github. ``devtools'' R-package will need to be installed to enable the install\textunderscore github functionality. 
 <<install-sjemea-github,eval=FALSE,echo=TRUE>>=
 install.package("devtools") # note: need R v.>=3.1.0
 # to install devtools, use CRAN
 require(devtools)
 install_github("dianaransomhall/meadq")
 @ 
-You can browse the package sources via the URL
-\url{http://github.com/dianaransomhall/meadq}.
 
 
-\section*{Setup}
-This file is a vignette, written in R, as a reproducible research
-document.
+\section{R software reference}
+For those new to R, the free software may be downloaded from \url{http://www.cran.r-project.org}.  A highly user-friendly interface may be downloaded here \url{http://www.rstudio.com} with a guide here \url{http://www.dss.princeton.edu/training/RStudio101.pdf}.  A beginners guide to R is available here \url{http://www.cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf} and inevitable trouble shooting is best done by googling, as web documentation on R abounds.
 
-<<setup,message=FALSE>>=
+\subsection*{Vignette}
+To view the introductory vingette:
+<<vignette, eval=FALSE, echo=TRUE>>=
+vignette('meadq-intro', package='meadq')
+@
+
+\subsection*{Setup}
+This file is a vignette, written in R, as a reproducible research document.
+<<setup, message=FALSE>>=
 require(meadq)
 require(knitr)
 opts_chunk$set(cache=TRUE)
 opts_chunk$set(dev='pdf')
 @
 
-\section*{Introduction}
-
-This is a short introduction to the abilities of the meadq package
-for analysis of multielectrode array data.  It is not a comprehensive
-guide, but simply gives examples of what can be done with the package.
-The package contains some example data sets which are used here to
-demonstrate various routines.  
-
 \subsection*{Help pages}
-A list of help pages associated with the package is given by
-\verb+help(package='meadq')+ command:
-<<help,echo=FALSE>>=
-cat(format(help(package='meadq')), sep = '\n') #need to grab output.
+A list of help pages associated with the package is given by:
+<<help-pages, eval=FALSE, message=FALSE>>=
+help(package='meadq') 
 @
 
 
-\section*{Fourplot}
 
-The fourplot gives a quick overview for a data file, showing (a) the
-positions of recorded neurons (b) the array-wide firing rate,
-estimated by default every 1 s (c) the spike raster for the entire
-recording (d) the correlation index plot \citep{Wong1993}.
 
-<<>>=
-data.file <- system.file("inst", "P9_CTRL_MY1_1A.txt",
-                         package = "sjemea")
-s <- jay.read.spikes( data.file)
-fourplot(s)
+\section*{File naming conventions and experiment log file } 
+File names help store meta-data about file as well as provide a unique identifying used in the link to the experiment log file.  The experiment log file serves as more in depth documentation of what was done in experment.  Together the log file and the file name provide redundancy in experimental protocol useful as a check and also make data sets readily usable for those unfamiliar with data.
+
+\subsection*{File naming conventions}
+Aspects of the file naming conventions must be followed in order that the code executes without error. Those aspects which much be followed are that the first 4 chunks must be seperated by ``\textunderscore '' and must give meta-data that matches with the experimental log file .csv file. This is necessary for meadq to match the input file to experimental meta-data in the log file and combine them in the resulting hdf5 file. 
+\\*Let's use the example file provdied within the package subdirectory``extdata'': 
+
+\begin{description}
+\item[spike train text file]
+ON\textunderscore 20140205\textunderscore MW1007-26\textunderscore DIV07\textunderscore 001.mapTimestamps 
+\item[log file] Experiment\textunderscore LogFileExample.csv
+\end{description}
+
+
+\begin{description}
+
+\item[Project] ``ON'' codes the project or group of experiments: ``ON'' for ontogeny. 
+\begin{description}
+\item[position in file name] immediately preceeding the first `\textunderscore '
+\item[format] The project desination may be of any length or capitalization but needs to begin with a letter.
+\item[designation in log file] The corresponding column in the log file must be entitled ``Project''. The contents of the ``Project'' column in the log file and the project designation in file name must be identical.
+\end{description}
+
+
+\item[Experiment Date] ``20140205'' denotes the date of the plating of the neurons, February 5, 2014. 
+\begin{description}
+\item[position in file name] immediate following the first `\textunderscore '
+\item[format] YYYYMMDD 
+\item[designation in log file] The corresponding column in the log file must be entitled ``Experiment Date''. The contents of the ``Experiment Date'' column in log file must be identical to the Experiment Date designation in file name.
+\end{description}
+
+
+\item[Plate SN ]  ``MW1007-26'' is the serial number (SN) of the plate used in the recording.  
+\begin{description}
+\item[position in file name] The serial number always follows the second `\textunderscore '.
+\item[format] any format alpha or numeric, so long as serial number contains no  \textunderscore
+\item[designation in log file] The corresponding column in the log file must be entitled ``Plate SN''. The contents of column entitled ``Plate SN'' in the log file must be identical to the plate serial number designation in the file name.
+\end{description}
+
+\item[DIV] ``DIV07'' denotes the 7th day in vitro (DIV) of the plated cells.
+\begin{description}
+\item[position in file name] After the 3rd ` \textunderscore '.
+\item[format]  ``DIV07'', ``DIV7'', ``07'', ``7'' are all permissible so long as a exact match is made to log file.
+\item[designation in log file] The DIV column in the log file must be entitled ``DIV''. The contents of the ``DIV'' column in the log file and the DIV designation in the file name must be identical.
+\end{description}
+
+\item[Users Choice] Any other naming conventions may be added to end of file name. Example data has `001' to indicate sequential order of recording should more than one be made with same meta-data.  Other examples may include indication of `pre' or  `post'  should there be pre and pose dose recordings.
+
+\end{description}
+
+
+
+
+\subsection*{Experiment log file conventions}
+Experiment log file must be a .csv (comma seperated value) file that contain the names and information listed below.  See  ``Experiment\textunderscore LogFileExample.csv'' located in the ``extdata'' subdirectory of package for an example.
+
+Column names in log file must match verbatim to list below (case sensitive):
+\begin{description}
+\item[Project] \mbox{}\\
+\begin{description}
+\item[format] Must match file name.  See ``Project'' in above subsection.
+\end{description}
+
+\item[Experiment Date] \mbox{}\\
+\begin{description}
+\item[format] Must match file name. See ``Experiment Date'' in above subsection.  
+\end{description}
+
+\item[Plate SN] \mbox{}\\
+\begin{description}
+\item[format] Must match file name. See ``Plate SN'' in above subsection.  
+\end{description}
+
+
+\item[DIV] \mbox{}\\
+\begin{description}
+\item[format] Must correspond to file name. See ``DIV'' in above subsection. 
+\end{description}
+
+
+\item[Well] \mbox{}\\
+\begin{description}
+\item[format] one row in log file for each well; must be a capital letter preceeded by a number e.g. "A1"or "F3" 
+\end{description}
+
+\item[Treatment] \mbox{}\\
+\begin{description}
+\item[format] any character string without spaces is permissible.
+\end{description}
+
+\item[Size] \mbox{}\\
+\begin{description}
+\item[format] give any size data about anything or list NA in column if no size specification exist 
+\end{description}
+
+\item[Dose] \mbox{}\\
+\begin{description}
+\item[format] dose of treatment. Any rational, or integer number is permissible 
+\end{description}
+
+\item[Units] \mbox{}\\
+\begin{description}
+\item[format] any-alpha numeric unit specification is permissible 
+\end{description}
+
+\end{description}
+
+
+
+
+
+
+\section*{Creating HDF5 Files}
+Converting data into HDF5 file format is beneficial for many reasons. Firstly, converting the recorded data from a proprietary or otherwise restrictive file type into a universal file type, such as HDF5, facilitates data sharing and provides flexibility in analysis software choice.  Secondly, the ``program on standards for datasharing'' by the International Neuroinformatics Coordinating Facility \url{ http://www.datasharing.incf.ord/ep/HDF5_data_standard} has recommended the HDF5 format. Finally, HDF5 files are designed to store meta-data and data seperately for maximum efficiency. For more information of the HDF5 format see \url{http://www.hdfgroup.org/HDF5/doc/H5.into.html}.
+ Code is provided to convert axion alpha map files (.map extension) to text files and finally to HDF5 (.h5 extention) format files and in the process store meta-data inside recording file. The intermediate step of converting alpha map files to text files is necessary since alpha map files are in binary and may only be decoded by a third party software such as NeuroExplorer \citep{neuroexplorer}.
+
+\subsection{create text files from alpha map files} \mbox{}\\
+NeuroExplorer has a scripting language that may be used to batch create text files (.mapTimestamps extension) of spike trains from apha map files.  meadq needs text spike trains to use the ``.mapTimestamps'' file extension.  For information regarding script language see manual
+here \url{http://www.neuroexplorer.com/downloads/Nex3Manual.pdf}.  A neuroExplorer script entitled ``Export\textunderscore timestamps\textunderscore from\textunderscore map\textunderscore files\textunderscore meadqExample.nsc'' is provided in the ``extdata'' subdirectory of
+meadq folder. 
+
+\subsection*{Execution}
+\begin{description}
+\item[interactive session] The script may be executed by initiating an interactive session of NeuroExplorer, opening the script and clicking the green play button.  A dialogue box will appear in the NeuroExplorer main page prompting for user to enter directory containing .map files to be converted.  Enter the file path where the .map files are located (make sure to keep the ``.\text{*}map'') and press ok.  The script outputs the .mapTimestamp files in the same folder as the .map files.  Try running the script on the example .map file provided in the ``extdata'' folder entitled ``ON\textunderscore 20140205\textunderscore MW1007-26\textunderscore DIV05\textunderscore 001.map ''
+
+\end{description}
+
+
+``Export\textunderscore timestamps\textunderscore from\textunderscore map\textunderscore files\textunderscore meadqExample.nsc''
+
+\begin{verbatim}
+doc = 0
+filefilter ="C:/Users/dhall05/Desktop/*.map"
+res = Dialog(doc, filefilter, "File Filter:", "string" )
+% create save folder
+position1 = Find(filefilter, "*" )
+save_folder = Left( filefilter, position1-1)
+
+Trace(save_folder, " timestamps have been saved in a text file")
+n= GetFileCount(filefilter)
+
+Trace(n, "files")
+for i=1 to n
+name = GetFileName(i)
+doc = OpenDocument (name)
+doc_title=GetDocTitle(doc)
+save_path= save_folder + doc_title + ".mapTimestamps"
+
+stampslabel = GetDocPath(doc) + "Timestamps"
+if doc > 0
+SaveAsTextFile(doc, save_path)
+Trace(name, "timestamps have been saved in a text file")
+CloseDocument(doc)
+end
+end
+\end{verbatim}
+
+\subsection{create HDF5 files from text files}
+
+
+<<create-h5-files, eval = F>>=
+## 
+data.file <- system.file("extdata", "ON_20140205_MW1007-26_DIV07_001.mapTimestamps", package="meadq")
+# user will be promted to navigate to .mapTimestamps files & log file
+make.axion.map.to.h5.dh()
 @
 
-\subsection{What is the ``s'' object?}
+
+
+
+
+
+
+
+\section*{Create well summary spreadsheet}
+Create two csv files \colon
+
+\begin{description}
+\item[ ont\textunderscore data\textunderscore summary\textunderscore AEfilt.csv] computes well summaries for each file using all AE (active electrodes\colon  $\geq 5$ spikes/min ) 
+\item[ ont\textunderscore data\textunderscore summary\textunderscore ABEfilt.csv] computes well summaries for each file using all ABE (actively bursting electrodes\colon  $\geq 1$ burst/min)
+\end{description}
+
+<<create-well-summary, eval=FALSE >>=
+data.file1 <- system.file("extdata", "ON_20140205_MW1007-26_DIV05_001.h5", package = "meadq")
+data.file2 <- system.file("extdata", "ON_20140205_MW1007-26_DIV07_001.h5", package = "meadq")
+data.file3 <- system.file("extdata", "ON_20140205_MW1007-26_DIV09_001.h5", package = "meadq")
+h5Files = c(data.file1, data.file2, data.file3)
+param.file <<- system.file( "data","chgv_parameters.rda", package = "meadq")
+
+create_ont_csv(h5Files = h5Files, save.rdata = TRUE, param.file = param.file )
+@
+
+
+In the process of making the well summary, a rdata (R's native data type) has been created in the same directory where the .h5 files are located, as save.rdata argument was set to TRUE.  Rdata or .rda extention is easily loadable by R using the following commands:
+<<rdata, eval=F >>=
+data.file <- system.file("data", "example_ont_data.rda", package = "meadq")
+load(data.file)
+
+@
+
+
+
+
+
+\section*{What is the ``s[[i]]'' object?}
 
 A convention of the program is that all data referring to a recording
 is stored within an object of class \texttt{mm.s}, which is actually a
@@ -114,22 +309,27 @@ The most important items in the list are:
 \item[layout] Information regarding the spatial layout of the units.
 \end{description}
 
+
+
+
+
+
+
+
+
+
+
 \section*{Burst analysis}
 
-We have several routines implemented for burst analysis:
+There are several routines for burst analysis. The most common is implemented:
 
 \begin{enumerate}
 \item Max Interval method, as described by Neuroexplorer \citep{neuroexplorer}
-\item Poisson surprise \citep{Legendy1985}
-\item Rank suprise \citep{Gourevitch2007}
+
 \end{enumerate}
 
-Out of these, the most tested has been the MaxInterval method.
-<<bursts>>=
-data.file <- system.file("examples", "TC89_DIV15_A.nexTimestamps",
-package = "sjemea")
-s <- sanger.read.spikes(data.file)
-s$allb <- spikes.to.bursts.surprise(s)
+<<bursts-load>>=
+data("example_ont_data")
 @
 
 So, for example, for electrode 2, we see the following bursts (just
@@ -137,8 +337,9 @@ taking the head as there are many of them.  We can also easily plot
 the number of bursts on each electrode.
 
 <<show-burst-info>>=
-head(s$allb[[2]])
-nbursts <- sapply(s$allb, nrow)
+s[[3]]$channels[[2]]
+head(s[[3]]$allb[[2]])
+nbursts <- sapply(s[[3]]$allb, nrow)
 plot(nbursts, xlab='Electrode number', ylab='Number of bursts',
      bty='n', las=1)
 @
@@ -150,7 +351,7 @@ in the \verb+s$allb+ component of the object.  Here we ask to see the
 burst information for twenty seconds of data from just the first five trains.
 
 <<burst-raster>>=
-plot(s, beg=100, end=200, show.bursts=TRUE, whichcells=1:5)
+plot(s[[2]], beg=200, end=250, show.bursts=TRUE, whichcells=1:5)
 @
 
 Bursts are indicated with a red horizontal line, and the blue number
@@ -167,14 +368,47 @@ is also a generic ``bursts'' package:
 \url{http://cran.r-project.org/web/packages/bursts/bursts.pdf}.
 
 
-\subsection*{Log interspike intervals}
 
-To help determine burst parameters, it is often helpful to look at a
-histogram of the interspike interval, plotted on a log scale.  
+\section*{Plate Summary Graphics}
 
-TODO: add this code from
-\url{~/proj/sangermea/pdn/logisi_condtable.R}.
-\url{~/proj/sangermea/logisi/logisi_only1.R}
+Get summary graphics of one of multiple files.
+
+<<Summary-Plots, eval = FALSE >>=
+h5Files = system.file("data", "example_ont_data.rda", package = "meadq")
+param.file = system.file("data","chgv_parameters.rda", package = "meadq")
+
+burst_table_Plots(param.file=param.file, h5Files=h5Files)
+
+@
+
+
+
+
+
+\section*{PCA: Principle components analysis}
+
+PCA is a useful technique in the MEA data framework. Many variables or ``features'' may be derived from a spike train without knowing which among these best capture the inforation in data.  PCA takes high-dimensional data, so called for the many variables such as mean firing rate, inter burst interval, etc. comprising the data, and identifies combinations of those variables, or PC dimensions, that are responsible for the greatest percentage of variation.  In this manner, a few PC dimensions describe a large percentage of variation in the data thereby reducing the number of variables, or dimensionality, of the data.
+
+<<bursts-load>>=
+filename.data = 
+trt.params.wanted = 
+output.folder = 
+ctr.params.wanted = 
+vars.wanted = 
+
+@
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section*{Network spikes}
 
@@ -202,7 +436,7 @@ retinal waves, the correlation index usually has an
 exponentially-decaying profile.  For other recordings,
 (e.g. hippocampal cultures), the profile tends to be flatter.
 
-<<>>=
+<<correlation-index >>=
 jay.data.file <- system.file("examples", "P9_CTRL_MY1_1A.txt",
                          package = "sjemea")
 jay.s <- jay.read.spikes( jay.data.file)
@@ -227,34 +461,9 @@ require(lattice); levelplot(t2)
 
 
 
-\section*{Movie making}
-
-We have code to make movies of the MEA activity.  For example, see the
-supplementary information to our 2003 paper:
-\url{http://www.jneurosci.org/content/23/7/2851/suppl/DC1}.  The code
-makes a sequence of PNG frames (every 0.5 s by default).  It then uses
-an external unix tool (convert) to create the movie.
 
 
-
-
-
-\section*{Batch analysis}
-
-As this code is all written in the R progamming language, it scales
-itself well to the notion that the analysis can be automated to run
-over many data files in batch, rather than running one at a time.  To
-this end, for the Genes to Cognition project, we devised a system
-where data files were expected in one directory, and output files
-would be written to a particular directory.  See the R function
-\texttt{sanger.init} and in particular the variables
-\texttt{mea.data.dir, mea.table.dir, mea.op.dir}.  A spreadsheet
-containing the files to be analysed is passed to a script that
-analyses each row of the spreadsheet independently.  This system was
-used to analyse several hundreds of files simultaneously.
-
-
-\section*{Data readers}
+\section*{Data readers in sjemea package}
 \label{sec:input}
 
 The examples above have used example data stored within the package to
@@ -277,46 +486,10 @@ that are available in the package.
   \url{http://www.neuroexplorer.com/code.html} to work in R.
 \end{description}
 
-\subsection*{Handling new data}
 
-Although these old readers still work, where possible, we should use
-the HDF5 format for data storage.  The preferred approach (as taken
-with the ``waverepo'' project), is to convert data as soon as possible
-into HDF5.
-
-Some older routines exist for reading in binary format
-(e.g. \texttt{mm.read.spikes}) but these are quite old now and
-cumbersome to maintain.  Whenever possible, data collected from
-laboratories should either be text or HDF5.
-
-\subsection*{Multi-well arrays}
-
-Through a collaboration with Dr Tim Shafer's group at EPA, we are
-developing code for handling multi-well data.  (For example, so that
-each well can be analysed independently in an efficient manner.)  This
-introduces an extra layer of abstraction into the geometry of the
-array, in that an electrode is part of a well, and there are many
-wells on one array (or ``plate'').
-
-\section*{Other features}
-
-Interactive facilities for viewing spike times were in earlier
-versions of the code, but Tk() widgets conflicted with the use of
-parallel() code.  I think this has now been fixed, so we might be able to
-return to adding interactive features.
-
-\subsection*{History}
-
-This package was originally written for research that was published in
-\citep{Demas2003}.  Since then it has been used by several other
-research groups.
 
 \subsection*{Acknowledgements}
-This work has been financially supported by grants from the Wellcome
-Trust, BBSRC and EPSRC.  Zhengzheng Zhang provided the \texttt{logisi}
-function.  I thank Paul Charlesworth for many discussions about
-electrophysiological analysis.
-
+Thanks to Stephen Eglen at DAMTP, Cambridge UK for his help in creating this package by building off of his package ``sjemea'', available \url{http://github.com/sje30/sjemea}.  Thanks to Tim Shafer, US EPA for his help and data.
 
 
 \bibliographystyle{jneurosci}
@@ -325,7 +498,7 @@ electrophysiological analysis.
 \subsection*{Compiling this document}
 
 <<eval=FALSE,include=TRUE>>=
-require(knitr); knit2pdf('sjemea-intro.Rnw')
+require(knitr); knit2pdf('meadq-intro.Rnw')
 @
 
 

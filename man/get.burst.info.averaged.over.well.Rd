@@ -11,7 +11,7 @@ get.burst.info.averaged.over.well
 
 }
 \usage{
-get.burst.info.averaged.over.well(param.file=NULL, h5Files = filepath )
+get.burst.info.averaged.over.well(s, goodwells.ind=TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,9 +25,6 @@ get.burst.info.averaged.over.well(param.file=NULL, h5Files = filepath )
 }
 }
 
-\references{
-
-}
 \author{
 Diana Hall
 }
@@ -37,7 +34,4 @@ Diana Hall
 \dontrun{ get.burst.info.averaged.over.well( s, goodwells.ind=F ) }
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+ 
