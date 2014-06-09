@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.15)  4 JUN 2014 18:28
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.15)  9 JUN 2014 17:00
 entering extended mode
 **meadq-intro.tex
-(F:\R\Rpackage_meadq\vignettes\meadq-intro.tex
+(F:\R\Rpackage_meadq\meadq\vignettes\meadq-intro.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -311,7 +311,7 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 ))
-(F:\R\Rpackage_meadq\vignettes\meadq-intro.aux)
+(F:\R\Rpackage_meadq\meadq\vignettes\meadq-intro.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
@@ -431,58 +431,58 @@ Package color Info: Redefining color shadecolor on input line 128.
 
 {C:/Users/Diana/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Package color Info: Redefining color shadecolor on input line 139.
-Package color Info: Redefining color shadecolor on input line 153.
+Package color Info: Redefining color shadecolor on input line 154.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 172.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 173.
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
 
  []
 
 [4]
-Package color Info: Redefining color shadecolor on input line 325.
+Package color Info: Redefining color shadecolor on input line 326.
 
-Overfull \hbox (14.20737pt too wide) in paragraph at lines 328--328
+Overfull \hbox (14.20737pt too wide) in paragraph at lines 329--329
 [][]\T1/lmtt/m/n/10 data.file[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lmt
 t/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV07_001.mapTimestamps
 "[][],[][] 
@@ -491,7 +491,7 @@ t/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV07_001.mapTimestamps
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.345 Create two csv files \colon
+l.346 Create two csv files \colon
                                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -499,24 +499,8 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.346 
+l.347 
       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.348 ...ile using all AE (active electrodes\colon
-                                                    $\geq 5$ spikes/min )
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.348 ...ng all AE (active electrodes\colon  $\geq
-                                                   5$ spikes/min )
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -524,7 +508,23 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.349 ...l ABE (actively bursting electrodes\colon
+l.349 ...ile using all AE (active electrodes\colon
+                                                    $\geq 5$ spikes/min )
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.349 ...ng all AE (active electrodes\colon  $\geq
+                                                   5$ spikes/min )
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.350 ...l ABE (actively bursting electrodes\colon
                                                     $\geq 1$ burst/min)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -532,175 +532,124 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.349 ...actively bursting electrodes\colon  $\geq
+l.350 ...actively bursting electrodes\colon  $\geq
                                                    1$ burst/min)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-Package color Info: Redefining color shadecolor on input line 353.
+Package color Info: Redefining color shadecolor on input line 354.
 
-Overfull \hbox (61.45723pt too wide) in paragraph at lines 355--355
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 356--356
 [][]\T1/lmtt/m/n/10 data.file1[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
 tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV05_001.h5"[][],[] [
 ]package[] []=[] []"meadq"[][])[][] 
  []
 
 
-Overfull \hbox (61.45723pt too wide) in paragraph at lines 356--356
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 357--357
 [][]\T1/lmtt/m/n/10 data.file2[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
 tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV07_001.h5"[][],[] [
 ]package[] []=[] []"meadq"[][])[][] 
  []
 
 
-Overfull \hbox (61.45723pt too wide) in paragraph at lines 357--357
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 358--358
 [][]\T1/lmtt/m/n/10 data.file3[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
 tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV09_001.h5"[][],[] [
 ]package[] []=[] []"meadq"[][])[][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 372.
-Package color Info: Redefining color shadecolor on input line 424.
-Package color Info: Redefining color shadecolor on input line 437.
-[6] <figure/show-burst-info.pdf, id=28, 505.89pt x 505.89pt>
+Package color Info: Redefining color shadecolor on input line 371.
+Package color Info: Redefining color shadecolor on input line 423.
+[6]
+Package color Info: Redefining color shadecolor on input line 436.
+ <figure/show-burst-info.pdf, id=28, 505.89pt x 505.89pt>
 File: figure/show-burst-info.pdf Graphic file (type pdf)
 
 <use figure/show-burst-info.pdf>
-Package pdftex.def Info: figure/show-burst-info.pdf used on input line 462.
+Package pdftex.def Info: figure/show-burst-info.pdf used on input line 461.
 (pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 462--463
+Overfull \hbox (15.0pt too wide) in paragraph at lines 461--462
 [][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 474.
-[7 <F:/R/Rpackage_meadq/vignettes/figure/show-burst-info.pdf>]
-<figure/burst-raster.pdf, id=38, 505.89pt x 505.89pt>
+[7]
+Package color Info: Redefining color shadecolor on input line 473.
+ <figure/burst-raster.pdf, id=33, 505.89pt x 505.89pt>
 File: figure/burst-raster.pdf Graphic file (type pdf)
 
 <use figure/burst-raster.pdf>
-Package pdftex.def Info: figure/burst-raster.pdf used on input line 479.
+Package pdftex.def Info: figure/burst-raster.pdf used on input line 478.
 (pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 479--480
+Overfull \hbox (15.0pt too wide) in paragraph at lines 478--479
 [][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 504.
+[8 <F:/R/Rpackage_meadq/meadq/vignettes/figure/show-burst-info.pdf>]
+Package color Info: Redefining color shadecolor on input line 503.
+ [9 <F:/R/Rpackage_meadq/meadq/vignettes/figure/burst-raster.pdf>]
+Package color Info: Redefining color shadecolor on input line 523.
+Package color Info: Redefining color shadecolor on input line 562.
+Package color Info: Redefining color shadecolor on input line 580.
 
-Overfull \hbox (182.20688pt too wide) in paragraph at lines 515--515
-[]\T1/lmtt/b/n/10 ## Error: Error in h5checktypeOrOpenLoc(). File 'C:/Users/Dia
-na/R/win-library/3.1/meadq/data/example_ont_data.rda'
- []
-
-[8 <F:/R/Rpackage_meadq/vignettes/figure/burst-raster.pdf>]
-Package color Info: Redefining color shadecolor on input line 539.
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 552
-.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lm\ts1lmtt.fd"
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<figure/unnamed-chunk-11.pdf, id=48, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-11.pdf Graphic file (type pdf)
-
-<use figure/unnamed-chunk-11.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-11.pdf used on input line 555.
-(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 555--556
-[][] 
- []
-
-[9] <figure/unnamed-chunk-12.pdf, id=53, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-12.pdf Graphic file (type pdf)
-
-<use figure/unnamed-chunk-12.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-12.pdf used on input line 562.
-(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 562--563
-[][] 
- []
-
-[10 <F:/R/Rpackage_meadq/vignettes/figure/unnamed-chunk-11.pdf>]
-<figure/unnamed-chunk-13.pdf, id=62, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-13.pdf Graphic file (type pdf)
-
-<use figure/unnamed-chunk-13.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-13.pdf used on input line 568.
-(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 568--569
-[][] 
- []
-
-[11 <F:/R/Rpackage_meadq/vignettes/figure/unnamed-chunk-12.pdf>]
-Overfull \hbox (14.20737pt too wide) in paragraph at lines 580--580
-[]\T1/lmtt/m/n/10 ## cmpt.n> ## show.ns(s$ns)  # This shows each network spike!
-  Can take a long time.[] 
- []
-
-[12 <F:/R/Rpackage_meadq/vignettes/figure/unnamed-chunk-13.pdf>]
-Package color Info: Redefining color shadecolor on input line 599.
-
-Overfull \hbox (3.7074pt too wide) in paragraph at lines 601--601
+Overfull \hbox (3.7074pt too wide) in paragraph at lines 582--582
 [][]\T1/lmtt/m/n/10 jay.data.file[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1
 /lmtt/m/n/10 ([][]"examples"[][],[] []"P9_CTRL_MY1_1A.txt"[][],[] []package[] [
 ]=[] []"sjemea"[][])[][] 
  []
 
-<figure/correlation-index.pdf, id=80, 505.89pt x 505.89pt>
+<figure/correlation-index.pdf, id=51, 505.89pt x 505.89pt>
 File: figure/correlation-index.pdf Graphic file (type pdf)
 
 <use figure/correlation-index.pdf>
-Package pdftex.def Info: figure/correlation-index.pdf used on input line 608.
+Package pdftex.def Info: figure/correlation-index.pdf used on input line 589.
 (pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 608--609
+Overfull \hbox (15.0pt too wide) in paragraph at lines 589--590
 [][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 621.
-[13 <F:/R/Rpackage_meadq/vignettes/figure/correlation-index.pdf>]
-<figure/tiling-correlation.pdf, id=92, 505.89pt x 505.89pt>
+[10]
+Package color Info: Redefining color shadecolor on input line 602.
+ <figure/tiling-correlation.pdf, id=55, 505.89pt x 505.89pt>
 File: figure/tiling-correlation.pdf Graphic file (type pdf)
 
 <use figure/tiling-correlation.pdf>
-Package pdftex.def Info: figure/tiling-correlation.pdf used on input line 630.
+Package pdftex.def Info: figure/tiling-correlation.pdf used on input line 615.
 (pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 630--631
+Overfull \hbox (15.0pt too wide) in paragraph at lines 615--616
 [][] 
  []
 
-[14 <F:/R/Rpackage_meadq/vignettes/figure/tiling-correlation.pdf>]
-(F:\R\Rpackage_meadq\vignettes\meadq-intro.bbl)
-Package color Info: Redefining color shadecolor on input line 675.
- [15]
-(F:\R\Rpackage_meadq\vignettes\meadq-intro.aux) ) 
+[11 <F:/R/Rpackage_meadq/meadq/vignettes/figure/correlation-index.pdf>]
+(F:\R\Rpackage_meadq\meadq\vignettes\meadq-intro.bbl)
+Package color Info: Redefining color shadecolor on input line 632.
+ [12 <F:/R/Rpackage_meadq/meadq/vignettes/figure/tiling-correlation.pdf>] [13]
+(F:\R\Rpackage_meadq\meadq\vignettes\meadq-intro.aux) ) 
 Here is how much of TeX's memory you used:
- 5039 strings out of 493921
- 69811 string characters out of 3144875
- 130713 words of memory out of 3000000
- 8228 multiletter control sequences out of 15000+200000
- 30080 words of font info for 69 fonts, out of 3000000 for 9000
+ 4984 strings out of 493921
+ 68745 string characters out of 3144875
+ 128669 words of memory out of 3000000
+ 8180 multiletter control sequences out of 15000+200000
+ 29775 words of font info for 68 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,32p,717b,293s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX
- 2.9/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc
-/dvips/fontname/8r.enc}{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/lm/lm
--ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
-.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtk10.pfb><C:/Prog
-ram Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
-1/urw/palatino/uplri8a.pfb>
-Output written on meadq-intro.pdf (15 pages, 425073 bytes).
+ 27i,6n,32p,721b,257s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/
+MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:/Program Files (x86)/MiKTeX 2.9/f
+onts/enc/dvips/lm/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
+/lmtk10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on meadq-intro.pdf (13 pages, 249794 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

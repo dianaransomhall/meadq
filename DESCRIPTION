@@ -1,7 +1,7 @@
 Package: meadq
 Type: Package
 Title: analysis of microelectrode array files
-Version: 1.0.3
+Version: 1.0.4
 Depends:
     R (>= 3.0.0)
 Suggests:
@@ -14,5 +14,6 @@ Author: Diana Hall <dianaransomhall@yahoo.com>
 Maintainer: Diana Hall <dianaransomhall@yahoo.com>
 Description: Analysis and management of microelectrode array data
 License: GPL (>= 2)
+VignetteBuilder: knitr
 
 

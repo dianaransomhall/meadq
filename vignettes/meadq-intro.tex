@@ -138,6 +138,7 @@ This file is a vignette, written in R, as a reproducible research document.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
+\hlkwd{require}\hlstd{(sjemea)}
 \hlkwd{require}\hlstd{(meadq)}
 \hlkwd{require}\hlstd{(knitr)}
 \hlstd{opts_chunk}\hlopt{$}\hlkwd{set}\hlstd{(}\hlkwc{cache} \hlstd{=} \hlnum{TRUE}\hlstd{)}
@@ -274,7 +275,7 @@ Column names in log file must match verbatim to list below (case sensitive):
 
 
 \section*{Creating HDF5 Files}
-Converting data into HDF5 file format is beneficial for many reasons. Firstly, converting the recorded data from a proprietary or otherwise restrictive file type into a universal file type, such as HDF5, facilitates data sharing and provides flexibility in analysis software choice.  Secondly, the ``program on standards for datasharing'' by the International Neuroinformatics Coordinating Facility \url{ http://www.datasharing.incf.ord/ep/HDF5_data_standard} has recommended the HDF5 format. Finally, HDF5 files are compact files requiring less memory for storage. For more information of the HDF5 format see \url{http://www.hdfgroup.org/HDF5/doc/H5.into.html}.
+Converting data into HDF5 file format is beneficial for many reasons. Firstly, converting the recorded data from a proprietary or otherwise restrictive file type into a universal file type, such as HDF5, facilitates data sharing and provides flexibility in analysis software choice.  Secondly, the ``program on standards for datasharing'' by the International Neuroinformatics Coordinating Facility \url{ http://www.datasharing.incf.ord/ep/HDF5_data_standard} has recommended the HDF5 format. Finally, HDF5 files are designed to store meta-data and data seperately for maximum efficiency. For more information of the HDF5 format see \url{http://www.hdfgroup.org/HDF5/doc/H5.into.html}.
  Code is provided to convert axion alpha map files (.map extension) to text files and finally to HDF5 (.h5 extention) format files and in the process store meta-data inside recording file. The intermediate step of converting alpha map files to text files is necessary since alpha map files are in binary and may only be decoded by a third party software such as NeuroExplorer \citep{neuroexplorer}.
 
 \subsection{create text files from alpha map files} \mbox{}\\
@@ -360,9 +361,7 @@ Create two csv files \colon
 
 \hlkwd{create_ont_csv}\hlstd{(}\hlkwc{h5Files} \hlstd{= h5Files,} \hlkwc{save.rdata} \hlstd{=} \hlnum{TRUE}\hlstd{,} \hlkwc{param.file} \hlstd{= param.file)}
 \end{alltt}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: unused argument (param.file = param.file)}}\end{kframe}
+\end{kframe}
 \end{knitrout}
 
 
@@ -508,11 +507,29 @@ Get summary graphics of one of multiple files.
 
 \hlkwd{burst_table_Plots}\hlstd{(}\hlkwc{param.file} \hlstd{= param.file,} \hlkwc{h5Files} \hlstd{= h5Files)}
 \end{alltt}
+\end{kframe}
+\end{knitrout}
 
 
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# HDF5: unable to open file}}
 
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: Error in h5checktypeOrOpenLoc(). File 'C:/Users/Diana/R/win-library/3.1/meadq/data/example\_ont\_data.rda' is not a valid HDF5 file.}}\end{kframe}
+
+
+
+\section*{PCA: Principle components analysis}
+
+PCA is a useful technique in the MEA data framework. Many variables or ``features'' may be derived from a spike train without knowing which among these best capture the inforation in data.  PCA takes high-dimensional data, so called for the many variables such as mean firing rate, inter burst interval, etc. comprising the data, and identifies combinations of those variables, or PC dimensions, that are responsible for the greatest percentage of variation.  In this manner, a few PC dimensions describe a large percentage of variation in the data thereby reducing the number of variables, or dimensionality, of the data.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+filename.data = 
+trt.params.wanted = 
+output.folder = 
+ctr.params.wanted = 
+vars.wanted = 
+
+\end{alltt}
+\end{kframe}
 \end{knitrout}
 
 
@@ -522,7 +539,13 @@ Get summary graphics of one of multiple files.
 
 
 
-\section*{Network spikes}
+
+
+
+
+
+
+\section*{Network spikes: sjemea pacakge }
 
 Network spikes are periodic elevations in activity across the whole
 array \citep{Eytan2006}.  The following example shows how they are computed.
@@ -540,53 +563,11 @@ spikes in the recording.
 \begin{alltt}
 \hlkwd{example}\hlstd{(compute.ns)}
 \end{alltt}
-\begin{verbatim}
-## 
-## cmpt.n> data.file <- system.file("examples", "TC89_DIV15_A.nexTimestamps",
-## cmpt.n+                          package = "sjemea")
-## 
-## cmpt.n> s <- sanger.read.spikes( data.file, beg=400, end=700)
-## 
-## cmpt.n> s$ns <- compute.ns(s, ns.T=0.003, ns.N=10,sur=100)
-## 
-## cmpt.n> plot(s$ns, ylab='Count', xlab='Time (s)')
-\end{verbatim}
-\end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-11} 
-\begin{kframe}\begin{verbatim}
-## 
-## cmpt.n> plot(s$ns, xlim=c(450, 500),
-## cmpt.n+      xlab='Time (s)', ylab='Count')
-\end{verbatim}
-\end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-12} 
-\begin{kframe}\begin{verbatim}
-## 
-## cmpt.n> plot(s$ns$mean, xlab='Time (s)', ylab='Count', main='Mean NS')
-\end{verbatim}
-\end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-13} 
-\begin{kframe}\begin{verbatim}
-## 
-## cmpt.n> summary(s$ns)
-## 167 network spikes
-## recruitment 27.23 +/- 10.52
-## FWHM 0.023 +/- 0.013 (s)
-## 
-## cmpt.n> s$ns$brief
-##         n    peak.m   peak.sd    durn.m   durn.sd 
-## 167.00000  27.23353  10.51559   0.02315   0.01264 
-## 
-## cmpt.n> ## show.ns(s$ns)  # This shows each network spike!  Can take a long time.
-## cmpt.n> 
-## cmpt.n> 
-## cmpt.n>
-\end{verbatim}
 \end{kframe}
 \end{knitrout}
 
 
-\section*{Correlation index}
+\section*{Correlation index: sjemea package}
 
 The correlation index plot was devised by \citet{Wong1993} as a method to
 estimate how correlation between any pair of neurons on the array
@@ -610,7 +591,7 @@ exponentially-decaying profile.  For other recordings,
 \end{knitrout}
 
 
-\subsection*{Correlation analysis}
+\subsection*{Correlation analysis: sjemea package }
 
 We propose a new tiling-based measure for measuring the correlation
 between pairs of spike trains (ongoing work by Catherine Cutts).  Here
@@ -624,6 +605,10 @@ group of spike trains.
 \hlstd{s} \hlkwb{<-} \hlkwd{jay.read.spikes}\hlstd{(data.file)}
 \hlstd{t2} \hlkwb{<-} \hlkwd{tiling.allpairwise}\hlstd{(s)}
 \hlkwd{require}\hlstd{(lattice)}
+\end{alltt}
+
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Loading required package: lattice}}\begin{alltt}
 \hlkwd{levelplot}\hlstd{(t2)}
 \end{alltt}
 \end{kframe}
@@ -631,34 +616,6 @@ group of spike trains.
 
 \end{knitrout}
 
-
-
-
-
-
-
-\section*{Data readers in sjemea package}
-\label{sec:input}
-
-The examples above have used example data stored within the package to
-read in data.  Here are the names of some (not all) other readers
-that are available in the package.
- 
-\begin{description}
-\item[ncl.read.spikes]  -- Multi-Channel system MCS output of spike
-  times and cut outs.  (Named ``ncl'', as the data came from Newcastle.)
-\item[jay.read.spikes] -- Used for Demas et al. (2003)  (Named ``jay''
-  as the data was recorded by Jay Demas.)
-\item[h5.read.spikes] -- HDF5 format, as described in the current
-  ``waverepo'' project \citep{Eglen2014}.
-\item[sql.read.spikes] -- Prototype using SQL to store data.  This has
-  not been used for several years.
-\item[sanger.read.spikes] -- Multi-channel system from the Sanger
-  Genes to Cognition project.
-\item[nex.read.spikes] -- Neuroexplorer timestamp files can be read
-  in.  I have adapted the matlab code from
-  \url{http://www.neuroexplorer.com/code.html} to work in R.
-\end{description}
 
 
 

@@ -71,7 +71,6 @@ vignette('meadq-intro', package='meadq')
 \subsection*{Setup}
 This file is a vignette, written in R, as a reproducible research document.
 <<setup, message=FALSE>>=
-require(sjemea)
 require(meadq)
 require(knitr)
 opts_chunk$set(cache=TRUE)
@@ -233,8 +232,6 @@ for i=1 to n
 name = GetFileName(i)
 doc = OpenDocument (name)
 doc_title=GetDocTitle(doc)
-length_doc_title = StrLength(doc_title)-4
-doc_title=Mid(doc_title,1,length_doc_title )
 save_path= save_folder + doc_title + ".mapTimestamps"
 
 stampslabel = GetDocPath(doc) + "Timestamps"
@@ -393,7 +390,7 @@ burst_table_Plots(param.file=param.file, h5Files=h5Files)
 PCA is a useful technique in the MEA data framework. Many variables or ``features'' may be derived from a spike train without knowing which among these best capture the inforation in data.  PCA takes high-dimensional data, so called for the many variables such as mean firing rate, inter burst interval, etc. comprising the data, and identifies combinations of those variables, or PC dimensions, that are responsible for the greatest percentage of variation.  In this manner, a few PC dimensions describe a large percentage of variation in the data thereby reducing the number of variables, or dimensionality, of the data.
 
 <<PCA-start, eval=FALSE >>=
-filename.data = sytem.file
+filename.data = 
 trt.params.wanted = 
 output.folder = 
 ctr.params.wanted = 

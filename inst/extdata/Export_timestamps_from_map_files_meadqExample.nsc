@@ -38,6 +38,8 @@ for i=1 to n
 name = GetFileName(i)
 doc = OpenDocument (name)
 doc_title=GetDocTitle(doc)
+length_doc_title = StrLength(doc_title)-4
+doc_title=Mid(doc_title,1,length_doc_title )
 save_path= save_folder + doc_title + ".mapTimestamps"
 
 stampslabel = GetDocPath(doc) + "Timestamps"
