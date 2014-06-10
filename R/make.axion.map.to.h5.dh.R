@@ -18,9 +18,9 @@ make.axion.map.to.h5.dh<-function(  ){
   
   
   #determine directory for R code and load function bank 
-  root.dir<-dirname(dirname(mapTimestampFiles[1]))
+  root.dir<<-dirname(dirname(mapTimestampFiles[1]))
   #axion.map.to.h5 needs data.dir=directory of .mapTimestamps
-  data.dir<-dirname(mapTimestampFiles[1])
+  data.dir<<-dirname(mapTimestampFiles[1])
   #directory of h5 files
   dir.create(paste(dirname(data.dir),'/h5Files',sep='') )
   # <<- assigns global variables

@@ -60,6 +60,7 @@
 \usepackage{setspace}
 \usepackage{listings}
 \usepackage{verbatim}
+\usepackage{graphicx}
 
 \usepackage{xspace,amsmath}
 \newcommand{\um}{\ensuremath{\mu \text{m}}\xspace}
@@ -308,6 +309,8 @@ for i=1 to n
 name = GetFileName(i)
 doc = OpenDocument (name)
 doc_title=GetDocTitle(doc)
+length_doc_title = StrLength(doc_title)-4
+doc_title=Mid(doc_title,1,length_doc_title )
 save_path= save_folder + doc_title + ".mapTimestamps"
 
 stampslabel = GetDocPath(doc) + "Timestamps"
@@ -522,12 +525,17 @@ PCA is a useful technique in the MEA data framework. Many variables or ``feature
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-filename.data = 
-trt.params.wanted = 
-output.folder = 
-ctr.params.wanted = 
-vars.wanted = 
+\hlstd{filename.data} \hlkwb{=} \hlkwd{system.file}\hlstd{(}\hlstr{"extdata"}\hlstd{,} \hlstr{"ont_data_summary_AEfilt.csv"}\hlstd{,} \hlkwc{package} \hlstd{=} \hlstr{"meadq"}\hlstd{)}
+\hlstd{trt.params.wanted} \hlkwb{=} \hlkwd{list}\hlstd{(}\hlkwc{DIV.wanted} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"7"}\hlstd{,} \hlstr{"9"}\hlstd{,} \hlstr{"12"}\hlstd{),} \hlkwc{trt.wanted} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"Acetaminophen"}\hlstd{),}
+    \hlkwc{dose.wanted} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{3}\hlstd{,} \hlnum{10}\hlstd{))}
+\hlstd{ctr.params.wanted} \hlkwb{=} \hlkwd{list}\hlstd{(}\hlkwc{DIV.wanted} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"7"}\hlstd{,} \hlstr{"9"}\hlstd{,} \hlstr{"12"}\hlstd{),} \hlkwc{trt.wanted} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"Acetaminophen"}\hlstd{),}
+    \hlkwc{dose.wanted} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{0}\hlstd{))}
+\hlstd{output.folder} \hlkwb{=} \hlkwd{dirname}\hlstd{(filename.data)}
+\hlstd{vars.wanted} \hlkwb{=} \hlkwd{c}\hlstd{(}\hlstr{"dose"}\hlstd{,} \hlstr{"meanfiringrate"}\hlstd{,} \hlstr{"burst.per.min"}\hlstd{,} \hlstr{"mean.isis"}\hlstd{,} \hlstr{"per.spikes.in.burst"}\hlstd{,}
+    \hlstr{"mean.dur"}\hlstd{,} \hlstr{"mean.IBIs"}\hlstd{,} \hlstr{"nAE"}\hlstd{,} \hlstr{"nABE"}\hlstd{,} \hlstr{"ns.n"}\hlstd{,} \hlstr{"ns.peak.m"}\hlstd{,} \hlstr{"ns.durn.m"}\hlstd{)}
 
+\hlkwd{PCA.by.well}\hlstd{(}\hlkwc{filename.data} \hlstd{= filename.data,} \hlkwc{trt.params.wanted} \hlstd{= trt.params.wanted,}
+    \hlkwc{output.folder} \hlstd{= output.folder,} \hlkwc{ctr.params.wanted} \hlstd{= ctr.params.wanted,} \hlkwc{vars.wanted} \hlstd{= vars.wanted)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
@@ -535,6 +543,18 @@ vars.wanted =
 
 
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: could not find function "{}readImage"{}}}\end{kframe}
+\end{knitrout}
+
+\graphicspath{ {./} }
+\includegraphics{subsetindividuals-dims-1-2}
+
+
+The output includes dimension d
 
 
 

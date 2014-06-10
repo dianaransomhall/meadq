@@ -1,0 +1,35 @@
+PCA.by.well.R ,
+                                     run on Mon Jun 09 19:38:26 2014
+data set F:/R/Rpackage_meadq/meadq/inst/extdata/ont_data_summary_AEfilt.csvNULL
+$Dim.1
+$Dim.1$quanti
+                    correlation      p.value
+nABE                  0.9768505 3.856915e-12
+per.spikes.in.burst   0.9685768 4.331246e-11
+nAE                   0.9570262 5.109575e-10
+ns.n                  0.7774326 1.464846e-04
+ns.peak.m             0.6188144 6.181726e-03
+ns.durn.m             0.5631285 1.495958e-02
+mean.IBIs            -0.4801314 4.373640e-02
+mean.dur             -0.4846074 4.153370e-02
+mean.isis            -0.8895337 7.842238e-07
+
+
+$Dim.2
+$Dim.2$quanti
+               correlation      p.value
+mean.dur         0.7950498 0.0000804173
+meanfiringrate   0.5949481 0.0092011385
+ns.durn.m        0.5323191 0.0229579670
+ns.peak.m        0.4920207 0.0380729486
+mean.IBIs       -0.7481501 0.0003560110
+
+
+$Dim.3
+$Dim.3$quanti
+               correlation     p.value
+meanfiringrate   0.6516349 0.003390280
+dose             0.6442370 0.003904854
+burst.per.min    0.5903975 0.009892695
+
+
