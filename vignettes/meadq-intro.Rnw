@@ -70,8 +70,8 @@ vignette('meadq-intro', package='meadq')
 @
 
 \subsection*{Setup}
-This file is a vignette, written in R, as a reproducible research document.
-<<setup, message=FALSE, echo=TRUE>>=
+Install and load packages into current R session.
+<<setup, message=FALSE, echo=TRUE, eval=F>>=
 install_github("sje30/sjemea") # companion pkg to meadq
 install_github("yihui/knitr") #to compile vignette
 source("http://bioconductor.org/biocLite.R") #for HDF5 files
@@ -80,6 +80,9 @@ biocLite("rhdf5")
 require(meadq)
 require(knitr)
 require(rhdf5)
+@
+This file is a vignette, written in R, as a reproducible research document.
+<<vignette-setup, message=FALSE, echo=TRUE, eval=T>>=
 opts_chunk$set(cache=TRUE) #to save time if results previously generated
 opts_chunk$set(dev='pdf')
 @
@@ -266,9 +269,6 @@ make.axion.map.to.h5.dh()
 
 
 
-
-
-
 \section*{Create well summary spreadsheet}
 Create two csv files \colon
 
@@ -422,7 +422,6 @@ PCA.by.well(filename.data = filename.data , trt.params.wanted = trt.params.wante
 
 <<PCA-implement, eval=TRUE, echo=FALSE >>=
 filename<-system.file("examples", "subsetindividuals-dims-1-2.png", package="meadq" )
-png<-readImage(filename )
 
 @
 

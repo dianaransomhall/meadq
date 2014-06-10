@@ -135,14 +135,27 @@ To view the introductory vingette:
 
 
 \subsection*{Setup}
+Install and load packages into current R session.
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{install_github}\hlstd{(}\hlstr{"sje30/sjemea"}\hlstd{)}  \hlcom{# companion pkg to meadq}
+\hlkwd{install_github}\hlstd{(}\hlstr{"yihui/knitr"}\hlstd{)}  \hlcom{#to compile vignette}
+\hlkwd{source}\hlstd{(}\hlstr{"http://bioconductor.org/biocLite.R"}\hlstd{)}  \hlcom{#for HDF5 files}
+\hlkwd{biocLite}\hlstd{(}\hlstr{"rhdf5"}\hlstd{)}
+\hlcom{# load packages into current session}
+\hlkwd{require}\hlstd{(meadq)}
+\hlkwd{require}\hlstd{(knitr)}
+\hlkwd{require}\hlstd{(rhdf5)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
 This file is a vignette, written in R, as a reproducible research document.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlkwd{require}\hlstd{(sjemea)}
-\hlkwd{require}\hlstd{(meadq)}
-\hlkwd{require}\hlstd{(knitr)}
-\hlstd{opts_chunk}\hlopt{$}\hlkwd{set}\hlstd{(}\hlkwc{cache} \hlstd{=} \hlnum{TRUE}\hlstd{)}
+\hlstd{opts_chunk}\hlopt{$}\hlkwd{set}\hlstd{(}\hlkwc{cache} \hlstd{=} \hlnum{TRUE}\hlstd{)}  \hlcom{#to save time if results previously generated}
 \hlstd{opts_chunk}\hlopt{$}\hlkwd{set}\hlstd{(}\hlkwc{dev} \hlstd{=} \hlstr{"pdf"}\hlstd{)}
 \end{alltt}
 \end{kframe}
@@ -336,9 +349,6 @@ end
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-
-
-
 
 
 
@@ -543,18 +553,6 @@ PCA is a useful technique in the MEA data framework. Many variables or ``feature
 
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error: could not find function "{}readImage"{}}}\end{kframe}
-\end{knitrout}
-
-\graphicspath{ {./} }
-\includegraphics{subsetindividuals-dims-1-2}
-
-
-The output includes dimension d
 
 
 

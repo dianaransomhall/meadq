@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.15)  9 JUN 2014 19:27
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.10.15)  10 JUN 2014 17:40
 entering extended mode
 **meadq-intro.tex
 (F:\R\Rpackage_meadq\meadq\vignettes\meadq-intro.tex
@@ -431,62 +431,59 @@ Package color Info: Redefining color shadecolor on input line 129.
 
 {C:/Users/Diana/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Package color Info: Redefining color shadecolor on input line 140.
-Package color Info: Redefining color shadecolor on input line 155.
+Package color Info: Redefining color shadecolor on input line 156.
+Package color Info: Redefining color shadecolor on input line 168.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 174.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 187.
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 224--225
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 246--247
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--252
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--257
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--267
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
 
  []
 
 
-Package natbib Warning: Citation `neuroexplorer' on page 4 undefined on input l
-ine 280.
+Underfull \hbox (badness 10000) in paragraph at lines 279--280
+
+ []
 
 [4]
-Package color Info: Redefining color shadecolor on input line 329.
-
-Overfull \hbox (14.20737pt too wide) in paragraph at lines 332--332
+Package color Info: Redefining color shadecolor on input line 342.
+ [5]
+Overfull \hbox (14.20737pt too wide) in paragraph at lines 345--345
 [][]\T1/lmtt/m/n/10 data.file[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lmt
 t/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV07_001.mapTimestamps
 "[][],[][] 
@@ -495,7 +492,7 @@ t/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV07_001.mapTimestamps
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.349 Create two csv files \colon
+l.359 Create two csv files \colon
                                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -503,16 +500,15 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.350 
+l.360 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-[5]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.352 ...ile using all AE (active electrodes\colon
+l.362 ...ile using all AE (active electrodes\colon
                                                     $\geq 5$ spikes/min )
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -520,7 +516,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.352 ...ng all AE (active electrodes\colon  $\geq
+l.362 ...ng all AE (active electrodes\colon  $\geq
                                                    5$ spikes/min )
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -528,7 +524,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.353 ...l ABE (actively bursting electrodes\colon
+l.363 ...l ABE (actively bursting electrodes\colon
                                                     $\geq 1$ burst/min)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -536,82 +532,79 @@ you left one out. Proceed, with fingers crossed.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.353 ...actively bursting electrodes\colon  $\geq
+l.363 ...actively bursting electrodes\colon  $\geq
                                                    1$ burst/min)
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-Package color Info: Redefining color shadecolor on input line 357.
+Package color Info: Redefining color shadecolor on input line 367.
 
-Overfull \hbox (61.45723pt too wide) in paragraph at lines 359--359
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 369--369
 [][]\T1/lmtt/m/n/10 data.file1[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
 tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV05_001.h5"[][],[] [
 ]package[] []=[] []"meadq"[][])[][] 
  []
 
 
-Overfull \hbox (61.45723pt too wide) in paragraph at lines 360--360
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 370--370
 [][]\T1/lmtt/m/n/10 data.file2[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
 tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV07_001.h5"[][],[] [
 ]package[] []=[] []"meadq"[][])[][] 
  []
 
 
-Overfull \hbox (61.45723pt too wide) in paragraph at lines 361--361
+Overfull \hbox (61.45723pt too wide) in paragraph at lines 371--371
 [][]\T1/lmtt/m/n/10 data.file3[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1/lm
 tt/m/n/10 ([][]"extdata"[][],[] []"ON_20140205_MW1007-26_DIV09_001.h5"[][],[] [
 ]package[] []=[] []"meadq"[][])[][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 374.
-
-Package natbib Warning: Citation `neuroexplorer' on page 6 undefined on input l
-ine 421.
-
-Package color Info: Redefining color shadecolor on input line 426.
+Package color Info: Redefining color shadecolor on input line 384.
 [6]
-Package color Info: Redefining color shadecolor on input line 439.
- <figure/show-burst-info.pdf, id=28, 505.89pt x 505.89pt>
-File: figure/show-burst-info.pdf Graphic file (type pdf)
+Package color Info: Redefining color shadecolor on input line 436.
+Package color Info: Redefining color shadecolor on input line 449.
 
-<use figure/show-burst-info.pdf>
-Package pdftex.def Info: figure/show-burst-info.pdf used on input line 464.
-(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 464--465
-[][] 
- []
+! LaTeX Error: File `figure/show-burst-info' not found.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.474 ...[width=\maxwidth]{figure/show-burst-info}
+                                                  
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package color Info: Redefining color shadecolor on input line 486.
+
+! LaTeX Error: File `figure/burst-raster' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.491 ...ics[width=\maxwidth]{figure/burst-raster}
+                                                  
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package color Info: Redefining color shadecolor on input line 516.
 [7]
-Package color Info: Redefining color shadecolor on input line 476.
- <figure/burst-raster.pdf, id=33, 505.89pt x 505.89pt>
-File: figure/burst-raster.pdf Graphic file (type pdf)
+Package color Info: Redefining color shadecolor on input line 536.
 
-<use figure/burst-raster.pdf>
-Package pdftex.def Info: figure/burst-raster.pdf used on input line 481.
-(pdftex.def)             Requested size: 426.79135pt x 426.7973pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 481--482
-[][] 
- []
-
-[8 <F:/R/Rpackage_meadq/meadq/vignettes/figure/show-burst-info.pdf>]
-
-Package natbib Warning: Citation `Tokdar2010' on page 9 undefined on input line
- 490.
-
-Package color Info: Redefining color shadecolor on input line 506.
-[9 <F:/R/Rpackage_meadq/meadq/vignettes/figure/burst-raster.pdf>]
-Package color Info: Redefining color shadecolor on input line 526.
-
-Overfull \hbox (35.2073pt too wide) in paragraph at lines 528--528
+Overfull \hbox (35.2073pt too wide) in paragraph at lines 538--538
 [][]\T1/lmtt/m/n/10 filename.data[] []=[] []\T1/lmtt/b/n/10 system.file[][]\T1/
 lmtt/m/n/10 ([][]"extdata"[][],[] []"ont_data_summary_AEfilt.csv"[][],[] []pack
 age[] []=[] []"meadq"[][])[][] 
  []
 
 
-Overfull \hbox (40.45729pt too wide) in paragraph at lines 529--529
+Overfull \hbox (40.45729pt too wide) in paragraph at lines 539--539
 [][]\T1/lmtt/m/n/10 trt.params.wanted[] []=[] []\T1/lmtt/b/n/10 list[][]\T1/lmt
 t/m/n/10 ([][]DIV.wanted[] []=[] []\T1/lmtt/b/n/10 c[][]\T1/lmtt/m/n/10 ([][]"7
 "[][],[] []"9"[][],[] []"12"[][]),[] []trt.wanted[] []=[] []\T1/lmtt/b/n/10 c[]
@@ -619,7 +612,7 @@ t/m/n/10 ([][]DIV.wanted[] []=[] []\T1/lmtt/b/n/10 c[][]\T1/lmtt/m/n/10 ([][]"7
  []
 
 
-Overfull \hbox (40.45729pt too wide) in paragraph at lines 531--531
+Overfull \hbox (40.45729pt too wide) in paragraph at lines 541--541
 [][]\T1/lmtt/m/n/10 ctr.params.wanted[] []=[] []\T1/lmtt/b/n/10 list[][]\T1/lmt
 t/m/n/10 ([][]DIV.wanted[] []=[] []\T1/lmtt/b/n/10 c[][]\T1/lmtt/m/n/10 ([][]"7
 "[][],[] []"9"[][],[] []"12"[][]),[] []trt.wanted[] []=[] []\T1/lmtt/b/n/10 c[]
@@ -627,20 +620,83 @@ t/m/n/10 ([][]DIV.wanted[] []=[] []\T1/lmtt/b/n/10 c[][]\T1/lmtt/m/n/10 ([][]"7
  []
 
 
-Overfull \hbox (66.70721pt too wide) in paragraph at lines 534--534
+Overfull \hbox (66.70721pt too wide) in paragraph at lines 544--544
 [][]\T1/lmtt/m/n/10 vars.wanted[] []=[] []\T1/lmtt/b/n/10 c[][]\T1/lmtt/m/n/10 
 ([][]"dose"[][],[] []"meanfiringrate"[][],[] []"burst.per.min"[][],[] []"mean.i
 sis"[][],[] []"per.spikes.in.burst"[][],[][] 
  []
 
 
-Overfull \hbox (98.20712pt too wide) in paragraph at lines 538--538
+Overfull \hbox (98.20712pt too wide) in paragraph at lines 548--548
 []    []\T1/lmtt/m/n/10 output.folder[] []= output.folder,[] []ctr.params.wante
 d[] []= ctr.params.wanted,[] []vars.wanted[] []= vars.wanted)[][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 547.
+Package color Info: Redefining color shadecolor on input line 580.
+Package color Info: Redefining color shadecolor on input line 598.
 
-!pdfTeX error: pdflatex.exe (file F:/R/Rpackage_meadq/meadq/vignettes/subsetind
-ividuals-dims-1-2.png): reading image file failed
- ==> Fatal error occurred, no output PDF file produced!
+Overfull \hbox (3.7074pt too wide) in paragraph at lines 600--600
+[][]\T1/lmtt/m/n/10 jay.data.file[] []<-[] []\T1/lmtt/b/n/10 system.file[][]\T1
+/lmtt/m/n/10 ([][]"examples"[][],[] []"P9_CTRL_MY1_1A.txt"[][],[] []package[] [
+]=[] []"sjemea"[][])[][] 
+ []
+
+
+! LaTeX Error: File `figure/correlation-index' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.607 ...idth=\maxwidth]{figure/correlation-index}
+                                                  
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[8]
+Package color Info: Redefining color shadecolor on input line 620.
+
+
+! LaTeX Error: File `figure/tiling-correlation' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.633 ...dth=\maxwidth]{figure/tiling-correlation}
+                                                  
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+(F:\R\Rpackage_meadq\meadq\vignettes\meadq-intro.bbl)
+Package color Info: Redefining color shadecolor on input line 650.
+ [9]
+(F:\R\Rpackage_meadq\meadq\vignettes\meadq-intro.aux) ) 
+Here is how much of TeX's memory you used:
+ 4979 strings out of 493921
+ 68279 string characters out of 3144875
+ 130669 words of memory out of 3000000
+ 8164 multiletter control sequences out of 15000+200000
+ 29775 words of font info for 68 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 27i,6n,32p,721b,257s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/
+MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:/Program Files (x86)/MiKTeX 2.9/f
+onts/enc/dvips/lm/lm-ec.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm
+/lmtk10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb
+><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmtti10.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on meadq-intro.pdf (9 pages, 176778 bytes).
+PDF statistics:
+ 66 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,26 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Eytan and Marom}{2006}]{Eytan2006}
+Eytan D, Marom S (2006)
+\newblock Dynamics and effective topology underlying synchronization in
+  networks of cortical neurons.
+\newblock {\em J. Neurosci.}~26:\mbox{8465--8476}.
+
+\bibitem[\protect\citeauthoryear{{NexTechnologies}}{2012}]{neuroexplorer}
+{NexTechnologies} (2012)
+\newblock {\em {NeuroExplorer} Manual}.
+
+\bibitem[\protect\citeauthoryear{Tokdar  \bgroup et al.\egroup
+  }{2010}]{Tokdar2010}
+Tokdar S, Xi P, Kelly RC, Kass RE (2010)
+\newblock Detection of bursts in extracellular spike trains using hidden
+  semi-markov point process models.
+\newblock {\em J. Comput. Neurosci.}~29:\mbox{203--212}.
+
+\bibitem[\protect\citeauthoryear{Wong \bgroup et al.\egroup }{1993}]{Wong1993}
+Wong ROL, Meister M, Shatz CJ (1993)
+\newblock Transient period of correlated bursting activity during development
+  of the mammalian retina.
+\newblock {\em Neuron}~11:\mbox{923--938}.
+
+\end{thebibliography}
