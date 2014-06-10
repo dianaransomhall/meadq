@@ -77,12 +77,12 @@ install_github("yihui/knitr") #to compile vignette
 source("http://bioconductor.org/biocLite.R") #for HDF5 files
 biocLite("rhdf5")
 #load packages into current session
-require(meadq)
-require(knitr)
 require(rhdf5)
 @
 This file is a vignette, written in R, as a reproducible research document.
-<<vignette-setup, message=FALSE, echo=TRUE, eval=T>>=
+<<vignette-setup, message=FALSE, echo=TRUE, eval=TRUE>>=
+require(meadq)
+require(knitr)
 opts_chunk$set(cache=TRUE) #to save time if results previously generated
 opts_chunk$set(dev='pdf')
 @

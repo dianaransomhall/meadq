@@ -16,10 +16,19 @@
 ## vignette('meadq-intro', package='meadq')
 
 
-## ----setup, message=FALSE------------------------------------------------
+## ----setup, message=FALSE, echo=TRUE, eval=F-----------------------------
+## install_github("sje30/sjemea") # companion pkg to meadq
+## install_github("yihui/knitr") #to compile vignette
+## source("http://bioconductor.org/biocLite.R") #for HDF5 files
+## biocLite("rhdf5")
+## #load packages into current session
+## require(rhdf5)
+
+
+## ----vignette-setup, message=FALSE, echo=TRUE, eval=TRUE-----------------
 require(meadq)
 require(knitr)
-opts_chunk$set(cache=TRUE)
+opts_chunk$set(cache=TRUE) #to save time if results previously generated
 opts_chunk$set(dev='pdf')
 
 
@@ -75,12 +84,28 @@ plot(s[[2]], beg=200, end=250, show.bursts=TRUE, whichcells=1:5)
 
 
 ## ----PCA-start, eval=FALSE-----------------------------------------------
-## filename.data =
-## trt.params.wanted =
-## output.folder =
-## ctr.params.wanted =
-## vars.wanted =
+## filename.data = system.file("extdata","ont_data_summary_AEfilt.csv",
+##                            package='meadq')
+## trt.params.wanted=list(DIV.wanted=c("7","9","12"),
+##                        trt.wanted=c('Acetaminophen'),
+##                        dose.wanted=c(1,3,10) )
+## ctr.params.wanted = list(DIV.wanted=c("7","9","12"),
+##                          trt.wanted=c('Acetaminophen'),
+##                          dose.wanted=c(0) )
+## output.folder = dirname( filename.data )
+## vars.wanted = c( "dose", "meanfiringrate","burst.per.min", "mean.isis",
+##                  "per.spikes.in.burst", "mean.dur", "mean.IBIs", "nAE",
+##                  "nABE", "ns.n", "ns.peak.m", "ns.durn.m" )
 ## 
+## PCA.by.well(filename.data = filename.data , trt.params.wanted = trt.params.wanted,
+##               output.folder = output.folder, ctr.params.wanted = ctr.params.wanted,
+##               vars.wanted = vars.wanted )
+## 
+
+
+## ----PCA-implement, eval=TRUE, echo=FALSE--------------------------------
+filename<-system.file("examples", "subsetindividuals-dims-1-2.png", package="meadq" )
+
 
 
 ## ----example-compute.ns, eval=F------------------------------------------
