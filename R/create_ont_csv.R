@@ -25,9 +25,9 @@ create_ont_csv<-function( h5Files = NULL, save.rdata = TRUE, param.file = NULL )
   dir.create( prepared.dir )
 
   # output file names 
-  assign( "csv.filename.AEfilt",paste( prepared.dir, "/ont_data_summary_AEfilt.csv",sep=""),
+  assign( "csv.filename.AEfilt",paste( prepared.dir, "/ont_data_summary_AEfilt",sep=""),
           envir = .GlobalEnv )
-  assign( "csv.filename.ABEfilt",paste( prepared.dir, "/ont_data_summary_ABEfilt.csv",sep=""  ),
+  assign( "csv.filename.ABEfilt",paste( prepared.dir, "/ont_data_summary_ABEfilt",sep=""  ),
           envir = .GlobalEnv )
   
  
