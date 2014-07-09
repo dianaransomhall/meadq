@@ -152,11 +152,16 @@ function(h5Files,  save.rdata=F ){
         ) #end data frame
         
         # write data to .csv file
+        
         if (write.header ){
-          write.table(  df, file=csv.filename.AEfilt, sep=",", append = F, col.names=T, row.names=F )
+          write.table(  df, file = paste( paste( strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+                                   plates[cur.plate],sep="_"), "_", csv.filename.AEfilt, sep="" ), 
+                        sep=",", append = F, col.names=T, row.names=F )
           
         } else{
-          write.table(  df, file=csv.filename.AEfilt, sep=",", append = T, col.names=F, row.names=F )
+          write.table(  df, file = paste( paste( strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+                            plates[cur.plate],sep="_"), "_", csv.filename.AEfilt, sep="" ),
+                        sep=",", append = T, col.names=F, row.names=F )
         }
         
         
@@ -250,10 +255,14 @@ function(h5Files,  save.rdata=F ){
         
         # write data to .csv file
         if ( write.header ){
-          write.table(  df2, file=csv.filename.ABEfilt, sep=",", append = F, col.names=T, row.names=F )
+          write.table(  df2, file= paste( paste( strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+                        plates[cur.plate],sep="_"), "_", csv.filename.ABEfilt, sep="" ),
+                         sep=",", append = F, col.names=T, row.names=F )
           
         } else{
-          write.table(  df2, file=csv.filename.ABEfilt, sep=",", append = T, col.names=F, row.names=F )
+          write.table(  df2, file= paste( paste( strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+                                                 plates[cur.plate],sep="_"), "_", csv.filename.ABEfilt, sep="" ),
+                        sep=",", append = T, col.names=F, row.names=F )
         }
         
         
