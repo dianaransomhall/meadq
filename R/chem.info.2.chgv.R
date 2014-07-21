@@ -81,7 +81,6 @@ chem.info.2.chgv<-function(file, masterChemFile=masterChemFile, debug=F) {
     plate.chem.info$pup[count]<-paste(masterCD$Pup[i])
     plate.chem.info$trt.div[count]<-paste(masterCD$Trt.DIV[i])
     plate.chem.info$well[count]<-paste(masterCD$Well[i])
-    plate.chem.info$DIV[count]<-paste(masterCD$DIV[i])
     count=count+1
     
   }#end of for loop through masterCD$file
