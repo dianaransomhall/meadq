@@ -12,7 +12,7 @@ chem.info.2.chgv<-function(file, masterChemFile=masterChemFile, debug=F) {
   good.colnames<-c("Treatment", "Plate.SN", "Experiment Date", "Dose","Project",
                    "Units", "Genotype", "Pup", "Trt.DIV","Well", "DIV" )
   match.array<-sapply(actual.colnames, grepl, x=good.colnames,ignore.case=T) 
-  stopifnot( all( apply(temp, 1,any) ) ) #look for at least one match
+  stopifnot( all( apply(match.array, 1, any) ) ) #look for at least one match
   #stop if each name doesn't have at least one match 
   
   temp.masterCD=c()
