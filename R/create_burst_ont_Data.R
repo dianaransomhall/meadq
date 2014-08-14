@@ -91,14 +91,21 @@ function(h5Files,  save.rdata=F ){
       num.wells = length(unique( subset(s[[cur.file]]$cw, ae.index.v) ) )
       well.indices = which(is.element(s[[cur.file]]$well, well.names ))
       
+      if( grepl( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],"[DIV]" ) ){
+        DIV <- rep( substring(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
+               4, nchar(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4])  ), num.wells)           
+      } else {
+        DIV<-rep(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
+                num.wells)
+      } 
+      
       df=c() #erase prior data
       if ( num.wells>0 ){
         
         df<-data.frame(
           date = rep( unlist(strsplit(basename(s[[cur.file]]$file), split="_"))[2]  , num.wells) , 
           Plate.SN = rep( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][3], num.wells) ,
-          DIV = rep( substring(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
-                               4, nchar(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4])  ), num.wells) ,
+          DIV = as.numeric( DIV) ,
           well = well.names ,
           trt = s[[cur.file]]$treatment[ well.names ]  , 
           dose = s[[cur.file]]$dose[ well.names ]  ,
@@ -154,7 +161,8 @@ function(h5Files,  save.rdata=F ){
         # write data to .csv file
         
         if (write.header ){
-          write.table(  df, file = paste( paste( csv.filename.AEfilt, strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+          write.table(  df, file = paste( paste( csv.filename.AEfilt, 
+                            strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
                                  plates[cur.plate],sep="_"), ".csv", sep="" ), 
                         sep=",", append = F, col.names=T, row.names=F )
           
@@ -191,13 +199,20 @@ function(h5Files,  save.rdata=F ){
         well.indices = which(is.element(s[[cur.file]]$well, well.names )) 
         
         #make data frame
+        if( grepl( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],"[DIV]" ) ){
+          DIV <- rep( substring(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
+                 4, nchar(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4])  ), 
+                 num.wells)           
+        } else {
+          DIV<-rep(unlist( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4] ),
+                  num.wells)
+        } 
         
         df2=c()
         df2<-data.frame(
           date = rep( unlist(strsplit(basename(s[[cur.file]]$file), split="_"))[2]  , num.wells) , 
           Plate.SN = rep( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][3], num.wells) ,
-          DIV = rep( substring(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
-                               4, nchar(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4])  ), num.wells) ,
+          DIV = as.numeric( DIV ) ,
           well = well.names ,
           trt = s[[cur.file]]$treatment[well.names]  , 
           dose = s[[cur.file]]$dose[ well.names ]  ,
@@ -255,7 +270,9 @@ function(h5Files,  save.rdata=F ){
         
         # write data to .csv file
         if ( write.header ){
-          write.table(  df2, file= paste( paste( csv.filename.ABEfilt, strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+          write.table(  df2, 
+                        file= paste( paste( csv.filename.ABEfilt, 
+                              strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
                         plates[cur.plate],sep="_"), ".csv", sep="" ) ,
                          sep=",", append = F, col.names=T, row.names=F )
           
