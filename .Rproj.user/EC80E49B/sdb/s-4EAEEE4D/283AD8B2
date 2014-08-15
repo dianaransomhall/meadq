@@ -1,0 +1,16 @@
+{
+    "contents" : "#convert_mapTimestamp_to_h5_MetaData.R\n#purpose: creating .h5 files that have well data in them\n#Diana Hall\n#07/21/2014\n\n\n\n#load required packages\nlibrary(sjemea)\nlibrary(meadq)\nlibrary(rhdf5)\n\n\n#######start of data input########\n########################################\n\n#get basename of files\ntempfiles<-sort(choose.files(caption=\"Select .mapTimestamp Files\"))\nmapTimestampFiles=sort(tempfiles) \n\n\n#determine directory for R code and load function bank \nroot.dir<-dirname(dirname(mapTimestampFiles[1]))\n\n#axion.map.to.h5 needs data.dir=directory of .mapTimestamps\ndata.dir<-dirname(mapTimestampFiles[1])\n#directory of h5 files\ndir.create(paste(dirname(data.dir),'/h5Files',sep='') )\nh5.dir<-paste(dirname(data.dir),'/h5Files',sep='')\n\n#get master chemical list\nmasterChemFile<-choose.files(caption=\"Select Master Chemical File\")\n\nsetwd(data.dir)\n\nL=length(mapTimestampFiles)\n\n#convert .mapTimestamps to .h5 files\nfor (i in 1:L){\n  #load data from all files in folder (listed above)\n  title<-strsplit(basename(mapTimestampFiles[i]), \".\", fixed = TRUE)[[1]][1]\n  #get plate chemical info for each file in the list\n  plate.chem.info<-chem.info.2.chgv(mapTimestampFiles[i],masterChemFile)\n  #make h5 files that contain chemical info \n  axion.map.to.h5.chgv(title,plate.chem.info) \n  \n}\n\n#######check h5file if so desired\n#h5file<-paste(h5.dir,\"/\",title,\".h5\",sep=\"\")\n#data<-h5.read.spikes.dh(h5file)\n\n\n\n\n",
+    "created" : 1408114611517.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "831771765",
+    "id" : "283AD8B2",
+    "lastKnownWriteTime" : 1405933640,
+    "path" : "F:/Duke/AxionData/RAnalysis/Code/convert_mapTimestamp_to_h5_MetaData_chgv.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,16 @@
+{
+    "contents" : "get.file.basename<- function(file) {\n\ttempname<-strsplit( basename(file),\".h5\")[[1]][1]\n\tbasename<-paste( strsplit(tempname, \"_\")[[1]][1],strsplit(tempname, \"_\")[[1]][2],\n                     strsplit(tempname, \"_\")[[1]][3],strsplit(tempname, \"_\")[[1]][4],sep=\"_\")\n\tbasename\n}\n\nget.project.plate.name<- function(file) {\n\ttempname<-strsplit( basename(file),\".h5\")[[1]][1]\n\tbasename<-paste( strsplit(tempname, \"_\")[[1]][1],strsplit(tempname, \"_\")[[1]][2],\n                     strsplit(tempname, \"_\")[[1]][3],sep=\"_\")\n\tbasename\n}\n\nget.all.electrodes<- function(r) {\n\tplate <- plateinfo(r$layout$array)\n\twells <- as.matrix(sort(plate$wells))\n\tresult <- as.vector(apply(wells,c(1,2),function(well) {get.electrode.layout(r,well)$electrodes}))\n\tresult \n}\n\nget.electrode.layout<-function(r,well) {\n\tplateinfo <- plateinfo(r$layout$array)\n\td1 <- expand.grid(col=1:plateinfo$n.elec.c,row=1:plateinfo$n.elec.r)\n\telectrodes <- sort(paste(well,\"_\", d1[,\"row\"],d1[,\"col\"],sep=\"\"))\n\tlayout <- c(plateinfo$n.elec.r, plateinfo$n.elec.c)\n\treturn(list(electrodes  = electrodes, layout = layout))\n}\n",
+    "created" : 1408114624118.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3668793889",
+    "id" : "F53C64ED",
+    "lastKnownWriteTime" : 1386017112,
+    "path" : "F:/Duke/AxionData/RAnalysis/Code/chgv_util.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

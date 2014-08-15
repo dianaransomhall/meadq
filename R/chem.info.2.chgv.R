@@ -10,7 +10,7 @@ chem.info.2.chgv<-function(file, masterChemFile=masterChemFile, debug=F) {
   # Do a check to make sure all data is there
   actual.colnames<-colnames(raw.masterCD)
   good.colnames<-c("Treatment", "Plate.SN", "Experiment Date", "Dose","Project",
-                   "Units", "Genotype", "Pup", "Trt.DIV","Well", "DIV" )
+                   "Units", "Genotype", "Pup", "Trt.DIV","Well" )
   match.array<-sapply(actual.colnames, grepl, x=good.colnames,ignore.case=T) 
   stopifnot( all( apply(match.array, 1, any) ) ) #look for at least one match
   #stop if each name doesn't have at least one match 
@@ -46,8 +46,6 @@ chem.info.2.chgv<-function(file, masterChemFile=masterChemFile, debug=F) {
   #well
   temp.masterCD$Well<-
     raw.masterCD[ ,grepl(x=actual.colnames, pattern="Well", ignore.case=T ) ]
-  #DIV
-  temp.masterCD$DIV<-raw.masterCD[ ,"DIV" ]
   
   #reconstruct file names
   temp1<-paste(temp.masterCD$Project, temp.masterCD$Experiment.Date,
