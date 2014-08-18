@@ -1,0 +1,17 @@
+{
+    "contents" : "# chgv_burst-spike-ns-allDIV.R\n# DIana Hall\n# 8-15-2014\n# purpose: to combine all analysis into one function\n",
+    "created" : 1408137061160.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1055254814",
+    "id" : "AF7C889E",
+    "lastKnownWriteTime" : 1408137095,
+    "path" : "F:/Duke/AxionData/RAnalysis/Code/chgv_burst-spike-ns-allDIV.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

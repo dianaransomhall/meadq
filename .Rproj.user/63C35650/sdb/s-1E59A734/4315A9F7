@@ -1,0 +1,16 @@
+{
+    "contents" : "#combine_partial_h5_files.R\n#Diana Hall\n#purpose: combine multiple .h5 files that are recorded from the same time\n# point but where split in the .map file due to file size limitations\n#04/16/2013\n\n\nlibrary(sjemea)\nlibrary(meadq)\nlibrary(rhdf5)\n\n#get the directory containing the .h5 files\n#These files are sorted in order that .001 preceeds .002, .0002 preceeds...etc\nh5Files<-sort( choose.files(caption=\"Choose .h5 files\") )\n\n\ncs<-combine.h5.files.dh(h5Files)\n",
+    "created" : 1407953482130.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "149645125",
+    "id" : "4315A9F7",
+    "lastKnownWriteTime" : 1407953548,
+    "path" : "E:/R/RAnalysis/Code/combine_partial_h5_files.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

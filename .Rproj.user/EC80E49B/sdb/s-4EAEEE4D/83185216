@@ -1,0 +1,16 @@
+{
+    "contents" : "chem.info.2 <-\nfunction(file,   \n                      masterChemFile=masterChemFile) {\n  \n  #get chemical info\n  #*********load chemical list*************\n  # read in masterChemFile\n  masterChem=read.csv(masterChemFile)\n  masterCD<-as.data.frame(masterChem)\n  #remove extraneous NA columns\n  masterCD<-masterCD[,1:9]\n  \n  #reconstruct file names\n  temp1<-paste(masterCD$Project, masterCD$Experiment.Date,masterCD$Plate.SN,sep=\"_\")\n  \n  #add a new column called masterCD$filenames\n  masterCD$filenames<-temp1\n  \n  #ensure log file is ordered correctly so it can be read in correctly\n  masterCD<-masterCD[order(masterCD$Experiment.Date,masterCD$Plate.SN,masterCD$Well),]\n  \n  #****match wells to chemicals *****\n  shortFileName<-paste( strsplit(basename(file),\"_\")[[1]][1],\n                        strsplit(basename(file),\"_\")[[1]][2],\n                        strsplit(basename(file),\"_\")[[1]][3],sep=\"_\")\n  \n  plate.chem.info<-list()\n  count=1;\n  for (i in which(shortFileName==masterCD$filename) ){\n    #get all info from chem list\n    plate.chem.info$well[count]<-paste(masterCD$Well[i])\n    plate.chem.info$treatment[count]<-paste(masterCD$Treatment[i])\n    plate.chem.info$size[count]<-paste(masterCD$Size[i])\n    plate.chem.info$dose[count]<-paste(masterCD$Dose[i])\n    plate.chem.info$units[count]<-paste(masterCD$Units[i])\n    count=count+1\n    \n  }#end of for loop through masterCD$file\n  \n  if (!is.element(length(plate.chem.info$well),c(12,48)) ){\n    print(paste(\"Info exisits for \",length(plate.chem.info$well),\n                \" wells; Some wells have no data.\", sep=\"\"))\n  }\n  plate.chem.info\n}\n",
+    "created" : 1408371781920.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "617083367",
+    "id" : "83185216",
+    "lastKnownWriteTime" : 1401465534,
+    "path" : "F:/R/Rpackage_meadq/meadq/R/chem.info.2.R",
+    "project_path" : "R/chem.info.2.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

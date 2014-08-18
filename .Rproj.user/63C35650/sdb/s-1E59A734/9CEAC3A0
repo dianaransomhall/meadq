@@ -1,0 +1,17 @@
+{
+    "contents" : "# make-table-by-chem.R\n# Diana Hall\n# 8-13-2014\n# purpose: to make a table by Div\n\n\nlibrary(meadq)\nEPA=0\nif(EPA){\n  data.dir<-\"L:/Lab/NHEERL_MEA/PIP3 - Project/Data/Specific Aim 1/prepared_data/\"\n  \n} else{\n  data.dir<-\"F:/Kathleen/Data/prepared_data/\"\n}\n\ndata<-paste(data.dir,\"AllAEOntogeny_files.csv\",sep=\"\")\n\n\ntemp.df<-read.table(data,sep=\",\",header=T)\ndf.allDIV<-temp.df[temp.df$DIV!=12.1, ]\nchem.dose<-paste( df.allDIV$trt, df.allDIV$dose,sep=\"_\"  )\nindex.c<-which(df.allDIV$dose==0)\nchem.dose[index.c]<-\"cont\"\ndf.allDIV$chem.dose<-chem.dose\n\n\n\nDIV.all<-unique(df.allDIV$DIV)\n#DIV.wanted=5\n\nfor (DIV.wanted in DIV.all){\n  \n  df<-df.allDIV[ df.allDIV$DIV==DIV.wanted,  ]\n  \n  df.mean<-aggregate( df, by=list(df$chem.dose), FUN=mean, na.rm=T)\n  df.sd<-aggregate( df, by=list(df$chem.dose), FUN=sd, na.rm=T)\n  df.n<-aggregate( df, by=list(df$chem.dose), FUN=length)\n  df.se<-cbind(chem.dose.group=df.sd[,1], \n               df.sd[,2:length(df.sd[1,])]/df.n[,2] )\n  \n  names(df.se)<-paste(names(df.mean),\"se\",sep=\".\")\n  \n  df.combo<-cbind( df.mean[ ,c(9:26)], df.se[ ,c(9:26)] )\n  order.combo.names<-sort(names(df.combo))\n  df.combo<-df.combo[ ,order.combo.names]\n  df.combo.temp<-cbind(chem.dose=df.mean[,1], n=df.n[,2], df.combo)\n  \n  \n  \n  \n  output.path<-\"F:/Kathleen/Analysis/DIVtable/table-by-DIV.csv\"\n  write.table(file=output.path, \" \", sep=\",\", append=T )\n  write.table(file=output.path, \" \", sep=\",\", append=T )\n  write.table(file=output.path, paste(\"DIV\", DIV.wanted), sep=\",\", append=T )\n  write.table(file=output.path, df.combo.temp,  sep=\",\", append=T)\n}\n\n\n\n",
+    "created" : 1407966526844.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1792306719",
+    "id" : "9CEAC3A0",
+    "lastKnownWriteTime" : 1408110396,
+    "path" : "E:/Kathleen/Analysis/DIVtable/make-table-by-chem.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

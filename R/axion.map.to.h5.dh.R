@@ -40,35 +40,6 @@ function (key, chem.info, make.venn = FALSE, debug = TRUE)
                      stringsAsFactors = FALSE)
     h5write(d2, path.expand(h5file), "summary.table")
   }
-  if (make.venn && is.element(length(f), c(2, 3))) {
-    require(VennDiagram)
-    require(grid)
-    if (length(f) == 2) {
-      elec1 <- names(spikes.sep[[1]])
-      elec2 <- names(spikes.sep[[2]])
-      setdiff(elec1, elec2)
-      setdiff(elec2, elec1)
-      cat.pos <- c(-10, 10)
-    }
-    if (length(f) == 3) {
-      elec1 <- names(spikes.sep[[1]])
-      elec2 <- names(spikes.sep[[2]])
-      elec3 <- names(spikes.sep[[3]])
-      setdiff(elec1, elec2)
-      setdiff(elec1, elec3)
-      setdiff(elec2, elec1)
-      setdiff(elec2, elec3)
-      cat.pos <- c(-10, 10, 180)
-    }
-    x = lapply(spikes.sep, names)
-    sapply(x, length)
-    names(x) <- short.filenames
-    pdf(file = sprintf("%s_venn.pdf", key))
-    p <- venn.diagram(x = x, euler.d = FALSE, scaled = FALSE, 
-                      cat.pos = cat.pos, filename = NULL, reverse = FALSE)
-    grid.newpage()
-    grid.draw(p)
-    dev.off()
-  }
+
   h5file
 }
