@@ -309,7 +309,8 @@ create_burst_ont_Data <-
                           sep=",", append = F, col.names=T, row.names=F )
             
           } else{
-            write.table(  df2, file= paste( paste( csv.filename.ABEfilt, strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+            write.table(  df2, file= paste( paste( csv.filename.ABEfilt, 
+                                                   strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
                                                    plates[cur.plate],sep="_"), ".csv", sep="" ),
                           sep=",", append = T, col.names=F, row.names=F )
           }
@@ -317,7 +318,30 @@ create_burst_ont_Data <-
           
           
           
-        } #end of if (sum(ABEind>0))
+        } else { 
+          df2<-df
+          df2$mean.isis<-rep(NA, length(df2$well))
+          df2$mean.IBIs<-rep(NA, length(df2$well))
+          df2$per.spikes.in.burst<-rep(NA, length(df2$well))
+          df2$mean.dur<-rep(NA, length(df2$well))
+          
+          # write data to .csv file
+          if ( write.header ){
+            write.table(  df2, 
+                          file= paste( paste( csv.filename.ABEfilt, 
+                                              strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+                                              plates[cur.plate],sep="_"), ".csv", sep="" ) ,
+                          sep=",", append = F, col.names=T, row.names=F )
+            
+          } else{
+            write.table(  df2, file= paste( paste( csv.filename.ABEfilt, 
+                                                   strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
+                                                   plates[cur.plate],sep="_"), ".csv", sep="" ),
+                          sep=",", append = T, col.names=F, row.names=F )
+          }
+          
+          
+          }#end of if (sum(ABEind>0))
         
         
         
