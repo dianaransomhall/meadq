@@ -23,11 +23,29 @@ function (h5file, ids = NULL, time.interval = 1, beg = NULL,
   s <- construct.s(spikes, ids, time.interval, beg, end, corr.breaks, 
                    layout, filename = h5file)
   
-  s$dose<-data$dose
-  s$treatment<-data$treatment
-  s$size<-data$size
-  s$units<-data$units
-  s$well<-data$well
+  names.data<-names(data)
+  if (is.element("dose", names.data) ){
+    s$dose<-data$dose
+  }
+  if (is.element("treatment", names.data) ){
+    s$treatment<-data$treatment
+  }
+  if (is.element("units", names.data) ){
+    s$units<-data$units
+  }
+  if (is.element("well", names.data) ){
+    s$well<-data$well
+  }
+  if (is.element("genotype", names.data) ){
+    s$genotype<-data$genotype
+  }
+  if (is.element("pup", names.data) ){
+    s$pup<-data$pup
+  }
+  if (is.element("trt.div", names.data) ){
+    s$trt.div<-data$trt.div
+  }
+
   
   s<-get.num.AE(s)
   

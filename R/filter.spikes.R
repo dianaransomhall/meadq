@@ -1,15 +1,15 @@
-filter.spikes <-
-function(h5Files,
-                        elec.min.rate=(5/60), 
-                        elec.max.rate=20,
+filter.spikes<-function(h5Files,
+                        elec.min.rate=(1/60), 
+                        elec.max.rate=25,
                         well.min.rate=15){
   # rates are in Hz
-  
+  result <- list()
+  count <- 0
   for (i in 1:length(h5Files)){
     if (!(i==1)){
       rm(s1,s2)
     }
-    s1<-h5.read.spikes(h5Files[i], beg=180, end=NULL)
+    s1<-h5.read.spikes(h5Files[i], beg=NULL, end=NULL)
     
     #indices of low and high firing rate
     low <- which(s1$meanfiringrate < elec.min.rate)
@@ -27,7 +27,6 @@ function(h5Files,
     
     #indices of low and high firing rate
     
-    if (length(s2$wells)=="48"){ well.min.rate=12}
     low <- which(s2$nAE < well.min.rate)
     
     bad.wells <- names(low)
@@ -36,8 +35,11 @@ function(h5Files,
     s<- remove.spikes(s2, bad.wells)
     s<-well.info(s)
     s$goodwells<-names(which(s2$nAE >= well.min.rate))
-    
+    if (s$meanfiringrate[1] > 0) {
+      count <- count + 1
+      result[[count]] <- s
+    }
   }#end of filter loop through folder
-  s
-  
-}
+  result
+}#end of filter.spikes function
+

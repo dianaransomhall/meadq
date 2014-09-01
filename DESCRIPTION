@@ -1,7 +1,7 @@
 Package: meadq
 Description: Multi-electrode analysis 
 Title: analysis of microelectrode array files
-Version: 1.0.4
+Version: 1.0.5
 Date: 2014-05-02
 Depends: sjemea
 Suggests:
