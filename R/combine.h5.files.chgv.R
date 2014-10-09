@@ -18,7 +18,8 @@ combine.h5.files.chgv<-function(h5Files ){
     #is current file=baseline file?
     #need to add in how to deal with baseline file
     #being split into many files "001","002",.. etc
-    if (substr(basename(s[[i]]$file),nchar(basename(s[[i]]$file))-5,
+    if (substr(basename(s[[i]]$file),
+               nchar(basename(s[[i]]$file))-5,
                nchar(basename(s[[i]]$file))-3) =="001" ){
       #increment combo_count
       cc=cc+1
@@ -28,11 +29,15 @@ combine.h5.files.chgv<-function(h5Files ){
       comboSpikes=s[[i]]$spikes
       #list of channels on initial file (.001)
       initialChannels<-s[[i]]$channels
-    } else if (substr(basename(s[[i]]$file),1,nchar(basename(s[[i]]$file))-5)==
-                 substr(basename(s_combo[[cc]]$file),1,nchar(basename(s_combo[[cc]]$file))-5) ){
+    } else if (substr(basename(s[[i]]$file),1,
+                      nchar(basename(s[[i]]$file))-5)==
+                 substr(basename(s_combo[[cc]]$file),
+                        1,
+                        nchar(basename(s_combo[[cc]]$file))-5) ){
       
       #combine lists together
-      comboSpikes<-mapply(c,comboSpikes,s[[i]]$spikes[initialChannels])
+      comboSpikes<-mapply(c,comboSpikes,
+                          s[[i]]$spikes[initialChannels])
       
       #update s_combo
       s_combo[[cc]]$spikes<-comboSpikes
@@ -52,7 +57,8 @@ combine.h5.files.chgv<-function(h5Files ){
   #append with _000
   for (i in 1:cc){
     #create file
-    h5File_combo<-paste(substr(s_combo[[i]]$file,1,nchar(s[[i]]$file)-7),
+    h5File_combo<-paste(substr(s_combo[[i]]$file,1,
+                               nchar(s[[i]]$file)-7),
                         "_000.h5",sep='')
     if (file.exists(h5File_combo)) 
       unlink(h5File_combo)
@@ -73,9 +79,9 @@ combine.h5.files.chgv<-function(h5Files ){
     h5write(array, h5File_combo, "/array")
     h5write(s_combo[[i]]$treatment, h5File_combo, "/treatment")
     h5write(s_combo[[i]]$dose, h5File_combo, "/dose")
-    h5write(s_combo[[i]]$genotype, h5file_combo, "/genotype")
-    h5write(s_combo[[i]]$pup, h5file_combo, "/pup")
-    h5write(s_combo[[i]]$trt.div, h5file_combo, "/trt.div")
+    h5write(s_combo[[i]]$genotype, h5File_combo, "/genotype")
+    h5write(s_combo[[i]]$pup, h5File_combo, "/pup")
+    h5write(s_combo[[i]]$trt.div, h5File_combo, "/trt.div")
     h5write(s_combo[[i]]$well, h5File_combo, "/well")
     h5write(s_combo[[i]]$units, h5File_combo, "/units")
     print(h5ls(h5File_combo))

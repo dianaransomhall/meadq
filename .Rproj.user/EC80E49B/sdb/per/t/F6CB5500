@@ -1,0 +1,16 @@
+{
+    "contents" : "get.data<-function(){\n\t#load necessary packages\n\tlibrary(sjemea)\n\tlibrary(rhdf5)\n\tlibrary(lattice)\n  library(meadq)\n\n\t#get the directory containing the .h5 files\n\th5Files<-sort(choose.files(caption=\"Choose .h5 Files or choose .Rdata file in h5Files folder\") )\n\n\t#set directories \n\troot.dir<-dirname(dirname(h5Files[1]))\n\t#load necessary functions\n\tcode.dir<-paste(root.dir,\"/RAnalysis/Code\",sep=\"\")\n\t#source(paste(code.dir,\"/MEA_functions.R\",sep=\"\"), echo=FALSE)\n\tsource(paste(code.dir,\"/chgv_util.R\",sep=\"\"), echo=FALSE)\n\tsource(paste(code.dir,\"/chgv_spikes.R\",sep=\"\"), echo=FALSE)\n\tsource(paste(code.dir,\"/chgv_bursts.R\",sep=\"\"), echo=FALSE)\n\tsource(paste(code.dir,\"/chgv_parameters.R\",sep=\"\"), echo=TRUE)\n\tsource(paste(code.dir,\"/chgv_network_spikes.R\",sep=\"\"), echo=FALSE)\n\t#source( paste(code.dir,\"/sjemea_updates.R\",sep=\"\"), echo=FALSE)\n\n\t#create directory for bursting\n\tsuppressWarnings(dir.create(paste(root.dir,'/Analysis',sep='')))\n\toutput.dir<-paste(root.dir,'/Analysis',sep='')\n\treturn(list(h5Files = h5Files,output.dir = output.dir))\t\n}\n\nanalysis <- get.data()\n\ns<-filter.spikes.burst.info(analysis$h5Files,\n\t\telec.min.rate = elec.min.rate,\n\t\telec.max.rate = elec.max.rate,\n\t\twell.min.rate = well.min.rate)\n\n\n#fix cw issue\nfor (i in 1:length(s)){\n  \n  s[[i]]$cw<-substring(s[[i]]$channels,1,2)\n}\n\nif (length(s)>0) {\n\tfor (i in 1:length(s)) {\n\t\ts[[i]] <- calculate.isis(s[[i]])\n\t\ts[[i]]$well.stats <- mean.firingrate.by.well(s[[i]])\n\t}\n\n\tbatchname <- get.project.plate.name(s[[1]]$file)\n\tBatchPlotPath = paste(analysis$output.dir,\"/\",batchname ,\"_plot.pdf\",sep=\"\")\n\tpdf(file=BatchPlotPath)\n\t\tplot.mean.firingrate.by.well.by.div(s)\n\t\tplot.mean.firingrate.by.eletrode.by.div(s)\n\tdev.off()\n\n\tplot.plate.summary.for.spikes(s,analysis$output.dir)\n\twrite.plate.summary.for.spikes(s,analysis$output.dir)\n\n\tplot.plate.summary.for.bursts(s,analysis$output.dir)\n\twrite.plate.summary.for.bursts(s,analysis$output.dir)\n}\n",
+    "created" : 1410558442671.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1036211923",
+    "id" : "F6CB5500",
+    "lastKnownWriteTime" : 1410538522,
+    "path" : "F:/Duke/CHGV_MEA_v3/RAnalysis/Code/chgv_1.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,5 +1,5 @@
 create_burst_ont_Data <-
-  function(h5Files,  save.rdata=F ){
+  function(h5Files,  save.rdata=F, add.silent.wells=T ){
     
     write.header=T
     plates = unique( sapply(strsplit(basename(h5Files), split="_"), function(x) x[3]) )
@@ -91,9 +91,11 @@ create_burst_ont_Data <-
         num.wells = length(unique( subset(s[[cur.file]]$cw, ae.index.v) ) )
         well.indices = which(is.element(s[[cur.file]]$well, well.names ))
         
-        if( grepl( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],"[DIV]" ) ){
+        if( grepl( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
+                   pattern="DIV" ) ){
           DIV <- rep( substring(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
-                                4, nchar(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4])  ), num.wells)           
+                                4, nchar(strsplit(basename(s[[cur.file]]$file), 
+                                                  split="_")[[1]][4])  ), num.wells)           
         } else {
           DIV<-rep(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
                    num.wells)
@@ -103,43 +105,57 @@ create_burst_ont_Data <-
         if ( num.wells>0 ){
           
           df<-data.frame(
-            date = rep( unlist(strsplit(basename(s[[cur.file]]$file), split="_"))[2]  , num.wells) , 
-            Plate.SN = rep( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][3], num.wells) ,
+            date = rep( unlist(strsplit(basename(s[[cur.file]]$file), split="_"))[2]  , 
+                        num.wells) , 
+            Plate.SN = rep( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][3], 
+                            num.wells) ,
             DIV = as.numeric( DIV) ,
             well = well.names ,
             trt = s[[cur.file]]$treatment[ well.names ]  , 
             dose = s[[cur.file]]$dose[ well.names ]  ,
             units = s[[cur.file]]$units[ well.names ]  ,
             meanfiringrate=sapply(by(subset(s[[cur.file]]$meanfiringrate, ae.index.v),
-                                     subset(s[[cur.file]]$cw, ae.index.v), mean, na.rm=T), function(x) x[1]) ,
+                                     subset(s[[cur.file]]$cw, ae.index.v), mean, na.rm=T), 
+                                  function(x) x[1]) ,
             
-            burst.per.min = sapply( by( subset(s[[cur.file]]$bs$bursts.per.min, ae.index.v), 
-                                        subset(s[[cur.file]]$cw, ae.index.v), mean, na.rm=T), function(x) x[1]) ,
+            burst.per.min = sapply( 
+              by( subset(s[[cur.file]]$bs$bursts.per.min, ae.index.v), 
+                  subset(s[[cur.file]]$cw, ae.index.v), mean, na.rm=T),
+                                    function(x) x[1]) ,
             
             mean.isis = sapply(by(subset( s[[cur.file]]$bs$mean.isi, ae.index.v),
-                                  subset(s[[cur.file]]$cw, ae.index.v) , mean, na.rm=T), function(x) x[1]) ,
+                                  subset(s[[cur.file]]$cw, ae.index.v) , mean, na.rm=T), 
+                               function(x) x[1]) ,
             
-            per.spikes.in.burst =sapply(by(subset(s[[cur.file]]$bs$per.spikes.in.burst, ae.index.v),
-                                           subset(s[[cur.file]]$cw, ae.index.v) , mean, na.rm=T), function(x) x[1]) ,
+            per.spikes.in.burst =sapply(by(subset(s[[cur.file]]$bs$per.spikes.in.burst, 
+                                                  ae.index.v),
+                                           subset(s[[cur.file]]$cw, ae.index.v) , 
+                                           mean, na.rm=T), function(x) x[1]) ,
             
             mean.dur =sapply(by(subset( s[[cur.file]]$bs$mean.dur, ae.index.v),
-                                subset( s[[cur.file]]$cw, ae.index.v) , mean, na.rm=T), function(x) x[1]) ,
+                                subset( s[[cur.file]]$cw, ae.index.v) , mean, na.rm=T), 
+                             function(x) x[1]) ,
             
             mean.IBIs =sapply(by(subset( s[[cur.file]]$bs$mean.IBIs, ae.index.v) ,
-                                 subset( s[[cur.file]]$cw, ae.index.v), mean, na.rm=T), function(x) x[1]) ,
+                                 subset( s[[cur.file]]$cw, ae.index.v), mean, na.rm=T), 
+                              function(x) x[1]) ,
             
             nAE = unlist( lapply( 
-              by( s[[cur.file]]$meanfiringrate*60, s[[cur.file]]$cw, function(x) x>=5), sum ) )[well.names] ,
+              by( s[[cur.file]]$meanfiringrate*60, s[[cur.file]]$cw, 
+                  function(x) x>=5), sum ) )[well.names] ,
             
             nABE= unlist( lapply( 
-              by( s[[cur.file]]$bs$bursts.per.min, s[[cur.file]]$cw, function(x) x>=0.5), sum ) )[well.names] ,
+              by( s[[cur.file]]$bs$bursts.per.min, s[[cur.file]]$cw, 
+                  function(x) x>=0.5), sum ) )[well.names] ,
             
             ns.n = sapply(s[[cur.file]]$ns.all, 
-                          function(x) x$brief['n'])[paste(well.names, "n", sep=".")] , #nspikes$ns.all$A8$brief
+                          function(x) x$brief['n'])[paste(well.names, "n", sep=".")] , 
             ns.peak.m = sapply(s[[cur.file]]$ns.all , 
-                               function(x) x$brief['peak.m'])[ paste(well.names, "peak.m", sep=".") ] ,
+                               function(x) x$brief['peak.m'])[ 
+                                 paste(well.names, "peak.m", sep=".") ] ,
             ns.durn.m = sapply(s[[cur.file]]$ns.all, 
-                               function(x) x$brief['durn.m'])[ paste(well.names, "durn.m", sep=".") ] ,
+                               function(x) x$brief['durn.m'])[ 
+                                 paste(well.names, "durn.m", sep=".") ] ,
             ns.percent.of.spikes.in.ns = sapply(s[[cur.file]]$ns.all, 
                                                 function(x) x$brief['percent.of.spikes.in.ns'])[ paste(well.names, "percent.of.spikes.in.ns", sep=".") ] ,
             ns.mean.insis = sapply(s[[cur.file]]$ns.all, 
@@ -158,8 +174,10 @@ create_burst_ont_Data <-
             file.name = rep( basename(s[[cur.file]]$file), num.wells )  
           ) #end data frame
           
-          # write data to .csv file
-          
+          # write data to .csv file, 
+          # wait to write for burst analysis
+          if (FALSE){
+            
           if (write.header ){
             write.table(  df, file = paste( paste( csv.filename.AEfilt, 
                                                    strsplit(basename(s[[cur.file]]$file),split="_")[[1]][2] ,
@@ -172,7 +190,7 @@ create_burst_ont_Data <-
                           sep=",", append = T, col.names=F, row.names=F )
           }
           
-          
+          } #end of if FALSE
         } # end of if num.wells>0
         
         
@@ -205,7 +223,8 @@ create_burst_ont_Data <-
           well.indices.abe = which(is.element(s[[cur.file]]$well, well.names.abe )) 
           
           #make data frame
-          if( grepl( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],"[DIV]" ) ){
+          if( grepl( strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
+                     pattern="[DIV]" ) ){
             DIV <- rep( substring(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4],
                                   4, nchar(strsplit(basename(s[[cur.file]]$file), split="_")[[1]][4])  ), 
                         num.wells)           
@@ -216,16 +235,20 @@ create_burst_ont_Data <-
           
           
           mean.isis.abe = sapply(by(subset( s[[cur.file]]$bs$mean.isi, abe.index),
-                                subset(s[[cur.file]]$cw, abe.index) , mean, na.rm=T), function(x) x[1]) 
+                                subset(s[[cur.file]]$cw, abe.index) , mean, na.rm=T), 
+                                function(x) x[1]) 
           
           per.spikes.in.burst.abe =sapply(by(subset(s[[cur.file]]$bs$per.spikes.in.burst, abe.index),
-                                         subset(s[[cur.file]]$cw, abe.index) , mean, na.rm=T), function(x) x[1]) 
+                                         subset(s[[cur.file]]$cw, abe.index) , mean, na.rm=T),
+                                         function(x) x[1]) 
           
           mean.dur.abe =sapply(by(subset( s[[cur.file]]$bs$mean.dur, abe.index),
-                              subset( s[[cur.file]]$cw, abe.index) , mean, na.rm=T), function(x) x[1]) 
+                              subset( s[[cur.file]]$cw, abe.index) , mean, na.rm=T), 
+                              function(x) x[1]) 
           
           mean.IBIs.abe =sapply(by(subset( s[[cur.file]]$bs$mean.IBIs, abe.index) ,
-                               subset( s[[cur.file]]$cw, abe.index), mean, na.rm=T), function(x) x[1]) 
+                               subset( s[[cur.file]]$cw, abe.index), mean, na.rm=T), 
+                               function(x) x[1]) 
           
           if ( num.wells>num.wells.abe ){
             
@@ -298,7 +321,60 @@ create_burst_ont_Data <-
             file.name = df$file.name  
           )
           
+          may.be.zero<-c("nAE", "nABE", "meanfiringrate", "burst.per.min",
+                         "cv.network","cv.time", "per.spikes.in.burst", 
+                         "ns.percent.of.spikes.in.ns","ns.n", 
+                         "per.spikes.in.burst", "r")
           
+          # add in well level number for wells that don't appear in calculation
+          if (add.silent.wells){           
+            silent.wells<-setdiff( s[[cur.file]]$well, df2$well )
+            date.sw<-rep(df2$date[1], length(silent.wells) )
+            Plate.SN.sw<-rep(df2$Plate.SN[1], length(silent.wells) )
+            DIV.sw<-rep(df2$DIV[1], length(silent.wells) )
+            trt.sw<- s[[1]]$treatment[silent.wells]
+            dose.sw<-s[[1]]$dose[silent.wells]
+            units.sw<-s[[1]]$units[silent.wells]
+            file.name.sw<-rep(df2$file.name[1], length(silent.wells) )
+            for (i in 1:length(may.be.zero)){
+              assign(paste(may.be.zero[i],"sw",sep="."), 
+                     rep(0, length(silent.wells) ) ) 
+            }
+            may.not.be.zero<-setdiff( names(df2), c(may.be.zero, 
+                  "DIV","date","well","Plate.SN","trt","dose","units","file.name") )
+            for (i in 1:length(may.be.zero) ){
+              assign(paste(may.not.be.zero[i],"sw",sep="."), 
+                     rep(NA, length(silent.wells) ) ) 
+            }
+            
+            df2.sw<-
+            data.frame(date=date.sw, Plate.SN=Plate.SN.sw, 
+                       DIV=DIV.sw, well= silent.wells, trt = trt.sw, 
+                       dose = dose.sw,
+                  units= units.sw, meanfiringrate = meanfiringrate.sw, 
+                  burst.per.min=burst.per.min.sw, mean.isis=mean.isis.sw,
+                  per.spikes.in.burst=per.spikes.in.burst.sw, 
+                  mean.dur=mean.dur.sw, mean.IBIs=mean.IBIs.sw, nAE=nAE.sw,
+                  nABE=nABE.sw, ns.n=ns.n.sw, ns.peak.m=ns.peak.m.sw, 
+                  ns.durn.m=ns.durn.m.sw, 
+                  ns.percent.of.spikes.in.ns=ns.percent.of.spikes.in.ns.sw,
+                  ns.mean.insis=ns.mean.insis.sw, 
+                  ns.durn.sd=ns.durn.sd.sw, 
+                  ns.mean.spikes.in.ns=ns.mean.spikes.in.ns.sw, 
+                  r=r.sw, 
+                  cv.time=cv.time.sw, 
+                  cv.network=cv.network.sw, 
+                  file.name=file.name.sw )
+            
+            df2<-rbind(df2, df2.sw)
+            
+          } # end of if add silent wells
+          
+          #change NA to 0 for endpoints that may be zero
+          for(cur.var in may.be.zero ){
+            df2[ is.na(df2[,cur.var]) , cur.var]<-0
+          }
+            
           
           # write data to .csv file
           if ( write.header ){
@@ -324,6 +400,67 @@ create_burst_ont_Data <-
           df2$mean.IBIs<-rep(NA, length(df2$well))
           df2$per.spikes.in.burst<-rep(NA, length(df2$well))
           df2$mean.dur<-rep(NA, length(df2$well))
+          
+          
+          
+          
+          may.be.zero<-c("nAE", "nABE", "meanfiringrate", "burst.per.min",
+                         "cv.network","cv.time", "per.spikes.in.burst", 
+                         "ns.percent.of.spikes.in.ns","ns.n", 
+                         "per.spikes.in.burst", "r")
+          
+          # add in well level number for wells that don't appear in calculation
+          if (add.silent.wells){           
+            silent.wells<-setdiff( s[[cur.file]]$well, df2$well )
+            date.sw<-rep(df2$date[1], length(silent.wells) )
+            Plate.SN.sw<-rep(df2$Plate.SN[1], length(silent.wells) )
+            DIV.sw<-rep(df2$DIV[1], length(silent.wells) )
+            trt.sw<- s[[1]]$treatment[silent.wells]
+            dose.sw<-s[[1]]$dose[silent.wells]
+            units.sw<-s[[1]]$units[silent.wells]
+            file.name.sw<-rep(df2$file.name[1], length(silent.wells) )
+            for (i in 1:length(may.be.zero)){
+              assign(paste(may.be.zero[i],"sw",sep="."), 
+                     rep(0, length(silent.wells) ) ) 
+            }
+            may.not.be.zero<-setdiff( names(df2), c(may.be.zero, 
+                                                    "DIV","date","well","Plate.SN","trt","dose","units","file.name") )
+            for (i in 1:length(may.be.zero) ){
+              assign(paste(may.not.be.zero[i],"sw",sep="."), 
+                     rep(NA, length(silent.wells) ) ) 
+            }
+            
+            df2.sw<-
+              data.frame(date=date.sw, Plate.SN=Plate.SN.sw, 
+                         DIV=DIV.sw, well= silent.wells, trt = trt.sw, 
+                         dose = dose.sw,
+                         units= units.sw, meanfiringrate = meanfiringrate.sw, 
+                         burst.per.min=burst.per.min.sw, mean.isis=mean.isis.sw,
+                         per.spikes.in.burst=per.spikes.in.burst.sw, 
+                         mean.dur=mean.dur.sw, mean.IBIs=mean.IBIs.sw, nAE=nAE.sw,
+                         nABE=nABE.sw, ns.n=ns.n.sw, ns.peak.m=ns.peak.m.sw, 
+                         ns.durn.m=ns.durn.m.sw, 
+                         ns.percent.of.spikes.in.ns=ns.percent.of.spikes.in.ns.sw,
+                         ns.mean.insis=ns.mean.insis.sw, 
+                         ns.durn.sd=ns.durn.sd.sw, 
+                         ns.mean.spikes.in.ns=ns.mean.spikes.in.ns.sw, 
+                         r=r.sw, 
+                         cv.time=cv.time.sw, 
+                         cv.network=cv.network.sw, 
+                         file.name=file.name.sw )
+            
+            df2<-rbind(df2, df2.sw)
+            
+          } # end of if add silent wells
+          
+          #change NA to 0 for endpoints that may be zero
+          for(cur.var in may.be.zero ){
+            df2[ is.na(df2[,cur.var]) , cur.var]<-0
+          }
+          
+          
+          
+          
           
           # write data to .csv file
           if ( write.header ){

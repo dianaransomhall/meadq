@@ -1,0 +1,16 @@
+{
+    "contents" : "library(sjemea)\nlibrary(rhdf5)\nlibrary(meadq)\n\n#get the directory containing the .h5 files\n#These files are sorted in order that .001 preceeds .002, .0002 preceeds...etc\nh5Files<-sort( choose.files(caption=\"Choose .h5 files\") )\n\n#combine files to get one big file,\n#cs is the list containing the combined spikes\ncs<-combine.h5.files.chgv(h5Files)\n",
+    "created" : 1410559818652.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3957210435",
+    "id" : "9E16FC7F",
+    "lastKnownWriteTime" : 1405935512,
+    "path" : "F:/Duke/CHGV_MEA_v3/RAnalysis/Code/combine_partial_h5_files_chgv.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

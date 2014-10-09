@@ -1,7 +1,7 @@
 filter.spikes.dh<-function(h5Files,
                            elec.min.rate=(1/60), 
-                           elec.max.rate=25,
-                           well.min.rate=15){
+                           elec.max.rate=25 ,
+                           well.min.rate=15 ){
   # rates are in Hz
   for (i in 1:length(h5Files)){
     if (!(i==1)){
@@ -83,9 +83,7 @@ filter.spikes.dh<-function(h5Files,
       s$trt.div<-s1$trt.div
       names(s$trt.div)<-s$trt.div
     }
-    if ( is.element("cw", s1.names) ){
-      s$cw<-s1$cw
-    }
+
     if ( is.element("rec.time", s1.names) ){
       s$rec.time<-s1$rec.time
     }
@@ -97,6 +95,8 @@ filter.spikes.dh<-function(h5Files,
       s$dose<-s1$dose
       names(s$dose)<-s1$well
     }
+    
+    s$cw<-substring(s$channels,1,2)
     
     s<-get.num.AE(s)
     
