@@ -1,0 +1,16 @@
+{
+    "contents" : "# create_ont_csvFile.R\n# Diana Hall\n# 3-14-2014\n# purpose: to create a burst data automatically from package\n\n\n\ncreate_ont_csv<-function( h5Files = NULL, save.rdata = TRUE, param.file = NULL ){  \n  \n  #load necessary packages\n  library(sjemea)\n  library(rhdf5)\n  library(lattice)\n  \n  #get the directory containing the .h5 files\n  if (is.null(h5Files)){\n    h5Files<-sort(choose.files(caption=\"Choose .h5 Files\") )    \n  }\n\n  #create directories\n  assign(\"h5.dir\", dirname(h5Files[1]), envir = .GlobalEnv )\n  assign(\"root.dir\",dirname( dirname(h5Files[1]) ), envir = .GlobalEnv )\n  assign(\"prepared.dir\",paste( dirname(h5.dir[1]) , \"prepared_data\", sep=\"/\"),\n         envir = .GlobalEnv )\n  dir.create( prepared.dir )\n\n  # output file names \n  assign( \"csv.filename.AEfilt\",paste( prepared.dir, \"/ont_data_summary_AEfilt\",sep=\"\"),\n          envir = .GlobalEnv )\n  assign( \"csv.filename.ABEfilt\",paste( prepared.dir, \"/ont_data_summary_ABEfilt\",sep=\"\"  ),\n          envir = .GlobalEnv )\n  \n \n  if ( is.null( param.file ) ){\n    data('chgv_parameters' )\n  } else {\n    if ( grepl(x=basename( param.file) , pattern=\".rda\") ){\n      load(param.file)\n    } else{\n      source( param.file, local=TRUE  ) \n    }\n  }\n\n  \n  \n  create_burst_ont_Data(h5Files=h5Files, save.rdata=save.rdata )\n\n} # end of create_ont_csv.R\n\n\n",
+    "created" : 1413302080299.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2544924634",
+    "id" : "9855CD95",
+    "lastKnownWriteTime" : 1404914812,
+    "path" : "E:/R/Rpackage_meadq/meadq/R/create_ont_csv.R",
+    "project_path" : "R/create_ont_csv.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

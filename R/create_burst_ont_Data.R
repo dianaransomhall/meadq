@@ -297,7 +297,7 @@ create_burst_ont_Data <-
             
             mean.dur = mean.dur ,
             
-            mean.IBIs = mean.dur  ,
+            mean.IBIs = mean.IBIs  ,
             
             nAE = df$nAE ,
             
