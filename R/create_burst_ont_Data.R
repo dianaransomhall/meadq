@@ -25,14 +25,16 @@ create_burst_ont_Data <-
         # get meta-data
         g=c(); #remove any information stored in g
         g<-h5read(path.expand( h5Files.wanted[cur.file] ), name = "/")
-        if ( is.element( "treatment", names(g) ) ){
+        if ( is.element( "treatment", tolower( names(g) ) ) ){
+          names(g)<-tolower(names(g))
+          names(g)[names(g)=="scount"]<-"sCount"
           s[[cur.file]]$cw = substring(s[[cur.file]]$channel,1,2 )
           s[[cur.file]]$treatment = g$treatment         
           names(s[[cur.file]]$treatment) = g$well
           s[[cur.file]]$dose = g$dose
           names(s[[cur.file]]$dose) = g$well
           s[[cur.file]]$sCount = g$sCount
-          names(s[[cur.file]]$sCount) = g$well
+          names(s[[cur.file]]$sCount) = g$names
           s[[cur.file]]$units = g$units
           names(s[[cur.file]]$units) = g$well
           s[[cur.file]]$well = g$well
